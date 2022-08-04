@@ -7,54 +7,54 @@ using UnityEngine.Audio;
 [Serializable]
 public class Sound
 {
-	public string name;
+	public string Name;
 
-	public AudioSource source;
+	public AudioSource Source;
 
-	public AudioClip clip;
+	public AudioClip Clip;
 
-	public bool playOnAwake = false;
+	public bool PlayOnAwake = false;
 
-	public bool loop = false;
+	public bool Loop = false;
 
 	[Range(0f, 2f)]
-	public float volume = 1;
-	[HideInInspector] public float defaultVolume = 1;
+	public float Volume = 1;
+	[HideInInspector] public float DefaultVolume = 1;
 
 	[Range(0.1f, 3f)]
-	public float pitch = 1;
+	public float Pitch = 1;
 
 	[Range(0f, 1f)]
-	public float spatialBlend = 0;
+	public float SpatialBlend = 0;
 }
 
 
 public class AudioController : MonoBehaviour
 {
-	[SerializeField] private List<Sound> sounds;
+	[SerializeField] private List<Sound> _sounds;
 
-	[HideInInspector] public bool isMuted = false;
+	[HideInInspector] public bool IsMuted = false;
 
 
 	private void Start()
 	{
 		//Set up source settings
-		foreach (Sound s in sounds)
+		foreach (Sound s in _sounds)
 		{
-			s.source.clip = s.clip;
+			s.Source.clip = s.Clip;
 
-			s.source.playOnAwake = s.playOnAwake;
+			s.Source.playOnAwake = s.PlayOnAwake;
 
-			s.source.loop = s.loop;
+			s.Source.loop = s.Loop;
 
-			s.source.volume = s.volume;
-			s.defaultVolume = s.volume;
+			s.Source.volume = s.Volume;
+			s.DefaultVolume = s.Volume;
 
-			s.source.pitch = s.pitch;
+			s.Source.pitch = s.Pitch;
 
-			s.source.spatialBlend = s.spatialBlend;
+			s.Source.spatialBlend = s.SpatialBlend;
 
-			if (s.playOnAwake)
+			if (s.PlayOnAwake)
 			{
 				Play(s);
 			}
@@ -66,13 +66,13 @@ public class AudioController : MonoBehaviour
 
 	public void Play(string name)
 	{
-		Sound s = sounds.Find(sound => sound.name == name); //Find source
+		Sound s = _sounds.Find(sound => sound.Name == name); //Find source
 
 		Play(s);
 	}
 	public void Play(string name, float delay)
 	{
-		Sound s = sounds.Find(sound => sound.name == name); //Find source
+		Sound s = _sounds.Find(sound => sound.Name == name); //Find source
 
 		Play(s, delay);
 	}
@@ -80,14 +80,14 @@ public class AudioController : MonoBehaviour
 	{
 		if (s != null)
 		{
-			s.source.PlayDelayed(delay);
+			s.Source.PlayDelayed(delay);
 		}
 	}
 
 
 	public void Stop(string name)
 	{
-		Sound s = sounds.Find(sound => sound.name == name); //Find source
+		Sound s = _sounds.Find(sound => sound.Name == name); //Find source
 
 		Stop(s);
 	}
@@ -95,14 +95,14 @@ public class AudioController : MonoBehaviour
 	{
 		if (s != null && IsPlaying(s))
 		{
-			s.source.Stop();
+			s.Source.Stop();
 		}
 	}
 
 
 	public bool IsPlaying(string name)
 	{
-		Sound s = sounds.Find(sound => sound.name == name); //Find source
+		Sound s = _sounds.Find(sound => sound.Name == name); //Find source
 
 		return IsPlaying(s);
 	}
@@ -110,7 +110,7 @@ public class AudioController : MonoBehaviour
 	{
 		if (s != null)
 		{
-			return s.source.isPlaying;
+			return s.Source.isPlaying;
 		}
 
 		return false;
@@ -120,31 +120,31 @@ public class AudioController : MonoBehaviour
 	public void UpdateMute()
 	{
 		//unmute
-		if(isMuted)
+		if(IsMuted)
 		{
-			foreach (Sound s in sounds)
+			foreach (Sound s in _sounds)
 			{
-				s.source.volume = s.volume;
+				s.Source.volume = s.Volume;
 
-				if (s.playOnAwake)
+				if (s.PlayOnAwake)
 				{
 					Play(s);
 				}
 			}
 
-			isMuted = false;
+			IsMuted = false;
 			PlayerPrefs.SetInt("Audio_Muted", 0);
 		}
 
 		//mute
 		else
 		{
-			foreach (Sound s in sounds)
+			foreach (Sound s in _sounds)
 			{
-				s.source.volume = 0;
+				s.Source.volume = 0;
 			}
 
-			isMuted = true;
+			IsMuted = true;
 			PlayerPrefs.SetInt("Audio_Muted", 1);
 		}
 	}
@@ -153,29 +153,29 @@ public class AudioController : MonoBehaviour
 		//unmute
 		if (!value)
 		{
-			foreach (Sound s in sounds)
+			foreach (Sound s in _sounds)
 			{
-				s.source.volume = s.volume;
+				s.Source.volume = s.Volume;
 
-				if (s.playOnAwake)
+				if (s.PlayOnAwake)
 				{
 					Play(s);
 				}
 			}
 
-			isMuted = false;
+			IsMuted = false;
 			PlayerPrefs.SetInt("Audio_Muted", 0);
 		}
 
 		//mute
 		else
 		{
-			foreach (Sound s in sounds)
+			foreach (Sound s in _sounds)
 			{
-				s.source.volume = 0;
+				s.Source.volume = 0;
 			}
 
-			isMuted = true;
+			IsMuted = true;
 			PlayerPrefs.SetInt("Audio_Muted", 1);
 		}
 	}

@@ -5,19 +5,19 @@ using NaughtyAttributes;
 
 public class StockViewer : MonoBehaviour
 {
-	[SerializeField] private StockGenerator stockGenerator;
+	[SerializeField] private StockGenerator _stockGenerator;
 
-	[SerializeField] private string stockSymbol = "IBM";
+	[SerializeField] private string _stockSymbol = "IBM";
 
 
 	[Button("Show Stock")]
 	public void Show()
 	{
-		Show(stockSymbol);
+		Show(_stockSymbol);
 	}
 	public void Show(string symbol)
 	{
-		Stock stock = stockGenerator.GenerateAlphaVantageStock(symbol);
+		Stock stock = _stockGenerator.GenerateAlphaVantageStock(symbol);
 
 		Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, HighestValue: {stock.HighestValue}, LowestValue: {stock.LowestValue}");
 	}

@@ -17,7 +17,7 @@ public class ThemeController : MonoBehaviour
     public Theme ActiveTheme;
 
     [Header("Settings")]
-    const string activeThemeIdPrefKey = "ActiveThemeID";
+    private const string _activeThemeIdPrefKey = "ActiveThemeID";
 
     [Header("Events")]
     public UnityEvent OnThemeChange;
@@ -42,9 +42,9 @@ public class ThemeController : MonoBehaviour
         {
             int activeThemeId = 0;
 
-            if (PlayerPrefs.HasKey(activeThemeIdPrefKey))
+            if (PlayerPrefs.HasKey(_activeThemeIdPrefKey))
             {
-                activeThemeId = PlayerPrefs.GetInt(activeThemeIdPrefKey);
+                activeThemeId = PlayerPrefs.GetInt(_activeThemeIdPrefKey);
             }
 
             EnableTheme(Themes[activeThemeId]);
@@ -61,7 +61,7 @@ public class ThemeController : MonoBehaviour
             Themes.Add(theme);
         }
 
-        PlayerPrefs.SetInt(activeThemeIdPrefKey, Themes.IndexOf(ActiveTheme));
+        PlayerPrefs.SetInt(_activeThemeIdPrefKey, Themes.IndexOf(ActiveTheme));
 
         OnThemeChange.Invoke();
     }

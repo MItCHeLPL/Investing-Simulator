@@ -5,16 +5,16 @@ using TMPro;
 
 public class LoadingScreenAnimation : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI _text;
 
-    [SerializeField] private float timeBetweenDots = 0.5f;
+    [SerializeField] private float _timeBetweenDots = 0.5f;
 
-    [HideInInspector] public bool finishedAnimationOnece = false;
+    [HideInInspector] public bool FinishedAnimationOnece = false;
 
 
     private void OnEnable()
 	{
-        finishedAnimationOnece = false;
+        FinishedAnimationOnece = false;
 
         StartCoroutine(LoadingCoroutine());
 	}
@@ -28,23 +28,23 @@ public class LoadingScreenAnimation : MonoBehaviour
     {
         while(isActiveAndEnabled)
 		{
-            text.SetText(".");
+            _text.SetText(".");
 
-            yield return new WaitForSecondsRealtime(timeBetweenDots);
+            yield return new WaitForSecondsRealtime(_timeBetweenDots);
 
-            text.SetText("..");
+            _text.SetText("..");
 
-            yield return new WaitForSecondsRealtime(timeBetweenDots);
+            yield return new WaitForSecondsRealtime(_timeBetweenDots);
 
-            text.SetText("...");
+            _text.SetText("...");
 
-            yield return new WaitForSecondsRealtime(timeBetweenDots);
+            yield return new WaitForSecondsRealtime(_timeBetweenDots);
 
-            text.SetText("");
+            _text.SetText("");
 
-            yield return new WaitForSecondsRealtime(timeBetweenDots);
+            yield return new WaitForSecondsRealtime(_timeBetweenDots);
 
-            finishedAnimationOnece = true;
+            FinishedAnimationOnece = true;
         }
     }
 }

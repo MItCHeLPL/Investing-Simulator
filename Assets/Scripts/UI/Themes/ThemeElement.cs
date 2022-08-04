@@ -4,7 +4,7 @@ using TMPro;
 
 public class ThemeElement : MonoBehaviour
 {
-	[SerializeField] private Theme.UseColor useColor;
+	[SerializeField] private Theme.UseColor _useColor;
 
 
 	private void Start()
@@ -44,7 +44,7 @@ public class ThemeElement : MonoBehaviour
 	{
 		try
 		{
-			switch (useColor)
+			switch (_useColor)
 			{
 				case Theme.UseColor.Primary:
 					{

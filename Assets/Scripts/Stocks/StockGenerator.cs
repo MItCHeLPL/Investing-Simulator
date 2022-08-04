@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StockGenerator : MonoBehaviour
 {
-    public int seed;
-	public string alphaVantageApiKey;
+    public int Seed;
+	public string AlphaVantageApiKey;
 
 
 	public Stock GenerateStock(int seed, string name, double existsFor)
@@ -25,6 +25,6 @@ public class StockGenerator : MonoBehaviour
 	public Stock GenerateAlphaVantageStock(string symbol)
 	{
 		//Other settings: https://www.alphavantage.co/documentation/
-		return AlphaVantageHandler.GetStock("TIME_SERIES_INTRADAY", symbol, "5min", alphaVantageApiKey);
+		return AlphaVantageHandler.GetStock("TIME_SERIES_INTRADAY", symbol, "5min", AlphaVantageApiKey);
 	}
 }
