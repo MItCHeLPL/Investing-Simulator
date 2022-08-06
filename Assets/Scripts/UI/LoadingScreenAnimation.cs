@@ -5,7 +5,7 @@ using TMPro;
 
 public class LoadingScreenAnimation : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TextMeshProUGUI text;
 
     [SerializeField] private float _timeBetweenDots = 0.5f;
 
@@ -28,19 +28,19 @@ public class LoadingScreenAnimation : MonoBehaviour
     {
         while(isActiveAndEnabled)
 		{
-            _text.SetText(".");
+            text.SetText(".");
 
             yield return new WaitForSecondsRealtime(_timeBetweenDots);
 
-            _text.SetText("..");
+            text.SetText("..");
 
             yield return new WaitForSecondsRealtime(_timeBetweenDots);
 
-            _text.SetText("...");
+            text.SetText("...");
 
             yield return new WaitForSecondsRealtime(_timeBetweenDots);
 
-            _text.SetText("");
+            text.SetText("");
 
             yield return new WaitForSecondsRealtime(_timeBetweenDots);
 

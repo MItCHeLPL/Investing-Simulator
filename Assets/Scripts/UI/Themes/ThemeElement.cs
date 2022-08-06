@@ -38,6 +38,10 @@ public class ThemeElement : MonoBehaviour
 		{
 			SetElementColor(maskableGraphic, theme);
 		}
+		else if (TryGetComponent(out Graphic graphic))
+		{
+			SetElementColor(graphic, theme);
+		}
 	}
 
 	private void SetElementColor(dynamic element, Theme theme)

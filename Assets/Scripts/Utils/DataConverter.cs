@@ -42,7 +42,7 @@ public static class DataConverter
 
 
 	//MATH
-	public static float Map(float value, float oldMinValue, float oldMaxValue, float newMinValue, float newMaxValue)
+	public static double Map(double value, double oldMinValue, double oldMaxValue, double newMinValue, double newMaxValue)
 	{
 		return newMinValue + (value - oldMinValue) * (newMaxValue - newMinValue) / (oldMaxValue - oldMinValue); //Map value from old range onto a new range
 	}
@@ -51,11 +51,11 @@ public static class DataConverter
 		return newMinValue + (value - oldMinValue) * (newMaxValue - newMinValue) / (oldMaxValue - oldMinValue); //Map value from old range onto a new range
 	}
 
-	public static float MapFrom01(float value, float newMinValue, float newMaxValue)
+	public static double MapFrom01(double value, double newMinValue, double newMaxValue)
 	{
 		return newMinValue + (value - 0) * (newMaxValue - newMinValue) / (1 - 0); //Map value from old range onto a new range
 	}
-	public static float MapTo01(float value, float oldMinValue, float oldMaxValue)
+	public static double MapTo01(double value, double oldMinValue, double oldMaxValue)
 	{
 		return 0 + (value - oldMinValue) * (1 - 0) / (oldMaxValue - oldMinValue); //Map value from old range onto a new range
 	}

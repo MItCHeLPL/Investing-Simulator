@@ -31,7 +31,7 @@ public class Sound
 
 public class AudioController : MonoBehaviour
 {
-	[SerializeField] private List<Sound> _sounds;
+	[SerializeField] private List<Sound> sounds;
 
 	[HideInInspector] public bool IsMuted = false;
 
@@ -39,7 +39,7 @@ public class AudioController : MonoBehaviour
 	private void Start()
 	{
 		//Set up source settings
-		foreach (Sound s in _sounds)
+		foreach (Sound s in sounds)
 		{
 			s.Source.clip = s.Clip;
 
@@ -66,13 +66,13 @@ public class AudioController : MonoBehaviour
 
 	public void Play(string name)
 	{
-		Sound s = _sounds.Find(sound => sound.Name == name); //Find source
+		Sound s = sounds.Find(sound => sound.Name == name); //Find source
 
 		Play(s);
 	}
 	public void Play(string name, float delay)
 	{
-		Sound s = _sounds.Find(sound => sound.Name == name); //Find source
+		Sound s = sounds.Find(sound => sound.Name == name); //Find source
 
 		Play(s, delay);
 	}
@@ -87,7 +87,7 @@ public class AudioController : MonoBehaviour
 
 	public void Stop(string name)
 	{
-		Sound s = _sounds.Find(sound => sound.Name == name); //Find source
+		Sound s = sounds.Find(sound => sound.Name == name); //Find source
 
 		Stop(s);
 	}
@@ -102,7 +102,7 @@ public class AudioController : MonoBehaviour
 
 	public bool IsPlaying(string name)
 	{
-		Sound s = _sounds.Find(sound => sound.Name == name); //Find source
+		Sound s = sounds.Find(sound => sound.Name == name); //Find source
 
 		return IsPlaying(s);
 	}
@@ -122,7 +122,7 @@ public class AudioController : MonoBehaviour
 		//unmute
 		if(IsMuted)
 		{
-			foreach (Sound s in _sounds)
+			foreach (Sound s in sounds)
 			{
 				s.Source.volume = s.Volume;
 
@@ -139,7 +139,7 @@ public class AudioController : MonoBehaviour
 		//mute
 		else
 		{
-			foreach (Sound s in _sounds)
+			foreach (Sound s in sounds)
 			{
 				s.Source.volume = 0;
 			}
@@ -153,7 +153,7 @@ public class AudioController : MonoBehaviour
 		//unmute
 		if (!value)
 		{
-			foreach (Sound s in _sounds)
+			foreach (Sound s in sounds)
 			{
 				s.Source.volume = s.Volume;
 
@@ -170,7 +170,7 @@ public class AudioController : MonoBehaviour
 		//mute
 		else
 		{
-			foreach (Sound s in _sounds)
+			foreach (Sound s in sounds)
 			{
 				s.Source.volume = 0;
 			}

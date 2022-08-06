@@ -5,21 +5,21 @@ using TMPro;
 
 public class UIUtils
 {
-    private static Dictionary<TextMeshProUGUI, string> _savedTextFields = new Dictionary<TextMeshProUGUI, string>();
+    private static Dictionary<TextMeshProUGUI, string> savedTextFields = new Dictionary<TextMeshProUGUI, string>();
 
 
     public static void ReplaceText(TextMeshProUGUI textField, string from, object to)
     {
         string text;
 
-        if(_savedTextFields.ContainsKey(textField))
+        if(savedTextFields.ContainsKey(textField))
         {
-            text = _savedTextFields[textField];
+            text = savedTextFields[textField];
         }
         else
         {
             text = textField.text;
-            _savedTextFields.Add(textField, text);
+            savedTextFields.Add(textField, text);
         }
         
         text = text.Replace(from, to.ToString());
