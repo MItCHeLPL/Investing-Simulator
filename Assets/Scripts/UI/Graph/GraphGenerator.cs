@@ -5,11 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.UI.Extensions;
+using UnityEngine.Events;
 
 public class GraphGenerator : MonoBehaviour
 {
 	[Header("Settings")]
-	[SerializeField] private byte _xLabelsAmount = 5;
+	[SerializeField] private byte _xLabelsAmount = 6;
 	[SerializeField] private byte _yLabelsAmount = 5;
 
 	[Header("References")]
@@ -18,51 +19,29 @@ public class GraphGenerator : MonoBehaviour
 	[Space(15)]
 
 	[SerializeField] private Transform labelsContainer;
-	[SerializeField] private UILineRenderer uiLineRenderer;
+	[SerializeField] private UILineRenderer graphUILineRenderer;
 
-	private RectTransform graphRect;
-	private Stock currentStock;
+	private RectTransform _graphRect;
+
+	[Header("Events")]
+	public UnityEvent OnGeneratedGraph;
 
 
 	private void Start()
 	{
-		graphRect = uiLineRenderer.GetComponent<RectTransform>();
-	}
-
-	private void Update()
-	{
-		// Value indicator 
-		if(currentStock != null)
-		{
-			//Get Player touch / cursor input if in uiLineRenderer rectPanel
-			if (IsTouchInputOnGraph())
-			{
-				ShowPointData(GetClosestPointIndex(Input.GetTouch(0).position)); // TODO: Check, touch position might need conversion to be realtive to local rect transform position
-			}
-			else if (IsMouseInputOnGraph())
-			{
-				ShowPointData(GetClosestPointIndex(graphRect.InverseTransformPoint(Input.mousePosition)));
-			}
-			else
-			{
-				//Hide point data
-				ShowPointData(-1);
-			}
-		}
+		_graphRect = graphUILineRenderer.GetComponent<RectTransform>();
 	}
 
 
 	public void GeneratePoints(Stock stock)
 	{
-		currentStock = stock;
-
-		uiLineRenderer.Points = new Vector2[stock.Values.Count];
+		graphUILineRenderer.Points = new Vector2[stock.Values.Count];
 
 		//Graph
 		// 0 - bottom left
 		// 2 - top right
 		Vector3[] panelCorners = new Vector3[4];
-		graphRect.GetLocalCorners(panelCorners);
+		_graphRect.GetLocalCorners(panelCorners);
 
 		//Labels
 		// X
@@ -87,7 +66,7 @@ public class GraphGenerator : MonoBehaviour
 
 			Vector2 pointPositon = new Vector2((float)x, (float)y);
 
-			uiLineRenderer.Points[i] = pointPositon;
+			graphUILineRenderer.Points[i] = pointPositon;
 
 			// Add labels
 			// X
@@ -148,64 +127,7 @@ public class GraphGenerator : MonoBehaviour
 				yLabelCount++;
 			}
 		}
-	}
 
-	private int GetClosestPointIndex(Vector3 position)
-	{
-		int closestIndex = -1;
-
-		float closestDistance = float.MaxValue;
-
-		for(int i=0; i<uiLineRenderer.Points.Length; i++)
-		{
-			if(Mathf.Abs(position.x - uiLineRenderer.Points[i].x) < closestDistance)
-			{
-				closestIndex = i;
-				closestDistance = Mathf.Abs(position.x - uiLineRenderer.Points[i].x);
-			}
-		}
-
-		//Debug.Log(closestIndex); // TEMP, TODO: remove after tested touch position
-
-		return closestIndex;
-	}
-
-	private void ShowPointData(int pointIndex)
-	{
-		// Concept: Get point's index and position -> Show dot and draw lines from point positon -> Show data of stock.Values[point's index].
-
-		if(currentStock != null)
-		{
-			if (pointIndex >= 0 && pointIndex < currentStock.Values.Count)
-			{
-				Debug.Log($"{currentStock.Values[pointIndex].Close} - {currentStock.Values[pointIndex].Timestamp}"); // TEMP
-
-				// TODO
-			}
-		}
-	}
-
-	public bool IsTouchInputOnGraph()
-	{
-		if (Input.touchCount > 0)
-		{
-			if (RectTransformUtility.RectangleContainsScreenPoint(graphRect, Input.GetTouch(0).position))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-	public bool IsMouseInputOnGraph()
-	{
-		Vector2 localMousePosition = graphRect.InverseTransformPoint(Input.mousePosition);
-
-		if (graphRect.rect.Contains(localMousePosition))
-		{
-			return true;
-		}
-
-		return false;
+		OnGeneratedGraph.Invoke();
 	}
 }

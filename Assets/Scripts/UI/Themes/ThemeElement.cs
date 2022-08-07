@@ -60,9 +60,14 @@ public class ThemeElement : MonoBehaviour
 						element.color = theme.SecondaryBackgroundColor;
 						break;
 					}
-				case Theme.UseColor.Accent:
+				case Theme.UseColor.Accent1:
 					{
-						element.color = theme.AccentColor;
+						element.color = theme.AccentColor1;
+						break;
+					}
+				case Theme.UseColor.Accent2:
+					{
+						element.color = theme.AccentColor2;
 						break;
 					}
 				default:

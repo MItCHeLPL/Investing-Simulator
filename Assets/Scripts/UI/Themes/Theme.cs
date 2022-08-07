@@ -8,12 +8,14 @@ public struct Theme
     public Color PrimaryBackgroundColor;
     public Color SecondaryBackgroundColor;
     public Color TextColor;
-    public Color AccentColor;
+    public Color AccentColor1;
+    public Color AccentColor2;
 
     public enum UseColor
 	{
         Primary,
         Secondary,
-        Accent
-	}
+        Accent1,
+        Accent2
+    }
 }

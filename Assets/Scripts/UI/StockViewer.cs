@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using NaughtyAttributes;
+using UnityEngine.Events;
 
 public class StockViewer : MonoBehaviour
 {
@@ -21,7 +22,10 @@ public class StockViewer : MonoBehaviour
 
 	[Space(15)]
 
-	public Stock CurrentStock;
+	public static Stock CurrentStock = null;
+
+	[Header("Events")]
+	public UnityEvent OnShow;
 
 
 	[Button("Show Stock")]
@@ -52,6 +56,8 @@ public class StockViewer : MonoBehaviour
 			currentValueText.SetText(stock.CurrentValue.ToString());
 		}
 
-		Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, LowestValue: {stock.LowestValue}, HighestValue: {stock.HighestValue}");
+		OnShow.Invoke();
+
+		//Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, LowestValue: {stock.LowestValue}, HighestValue: {stock.HighestValue}");
 	}
 }

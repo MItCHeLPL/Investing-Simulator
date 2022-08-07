@@ -417,6 +417,9 @@ MonoBehaviour:
   graphGenerator: {fileID: 155866878}
   symbolText: {fileID: 1380535425}
   currentValueText: {fileID: 552555913}
+  OnShow:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &385994241 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3491151244997089494, guid: 77922474566f188448022f77a0dcc52c, type: 3}
@@ -1326,7 +1329,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1531437506, guid: 77922474566f188448022f77a0dcc52c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 77922474566f188448022f77a0dcc52c, type: 3}
 --- !u!224 &790537702 stripped
 RectTransform:
@@ -1829,23 +1833,27 @@ MonoBehaviour:
     PrimaryBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
     SecondaryBackgroundColor: {r: 0.8745099, g: 0.8745099, b: 0.8745099, a: 1}
     TextColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    AccentColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    AccentColor1: {r: 0.48235297, g: 0.48235297, b: 0.48235297, a: 1}
+    AccentColor2: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
   - Name: Dark
     PrimaryBackgroundColor: {r: 0.08235294, g: 0.08235294, b: 0.08235294, a: 1}
     SecondaryBackgroundColor: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
     TextColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    AccentColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    AccentColor1: {r: 0.48235297, g: 0.48235297, b: 0.48235297, a: 1}
+    AccentColor2: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
   - Name: AMOLED
     PrimaryBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
     SecondaryBackgroundColor: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
     TextColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    AccentColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    AccentColor1: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    AccentColor2: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
   ActiveTheme:
     Name: 
     PrimaryBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
     SecondaryBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
     TextColor: {r: 0, g: 0, b: 0, a: 0}
-    AccentColor: {r: 0, g: 0, b: 0, a: 0}
+    AccentColor1: {r: 0, g: 0, b: 0, a: 0}
+    AccentColor2: {r: 0, g: 0, b: 0, a: 0}
   OnThemeChange:
     m_PersistentCalls:
       m_Calls: []
@@ -2072,7 +2080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Seed: 0
-  AlphaVantageApiKey: 
+  AlphaVantageApiKey: SKPKXPH12H9EWHO0
 --- !u!1001 &1905715588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2196,7 +2204,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SellButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1531437506, guid: 77922474566f188448022f77a0dcc52c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 77922474566f188448022f77a0dcc52c, type: 3}
 --- !u!224 &1905715589 stripped
 RectTransform:
@@ -2372,7 +2381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5259986692788498848, guid: e5f39abd653da68419f2d9428dcad304, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5259986692788498848, guid: e5f39abd653da68419f2d9428dcad304, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2408,7 +2417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5259986692788498848, guid: e5f39abd653da68419f2d9428dcad304, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5259986692788498848, guid: e5f39abd653da68419f2d9428dcad304, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2541,7 +2550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6170753359807559876, guid: dd9de0325e802904faf06bf65b0d4417, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00024248
+      value: 0.00028332518
       objectReference: {fileID: 0}
     - target: {fileID: 6170753360031754074, guid: dd9de0325e802904faf06bf65b0d4417, type: 3}
       propertyPath: m_StaticEditorFlags
