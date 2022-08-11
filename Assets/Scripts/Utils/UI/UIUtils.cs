@@ -10,9 +10,13 @@ public class UIUtils
 
     public static void ReplaceText(TextMeshProUGUI textField, string from, object to)
     {
+        ReplaceText(textField, new string[] { from }, new object[] { to });
+    }
+    public static void ReplaceText(TextMeshProUGUI textField, string[] from, object[] to)
+    {
         string text;
 
-        if(savedTextFields.ContainsKey(textField))
+        if (savedTextFields.ContainsKey(textField))
         {
             text = savedTextFields[textField];
         }
@@ -21,8 +25,11 @@ public class UIUtils
             text = textField.text;
             savedTextFields.Add(textField, text);
         }
-        
-        text = text.Replace(from, to.ToString());
+
+        for(int i=0; i<from.Length; i++)
+		{
+            text = text.Replace(from[i], to[i].ToString());
+        }
 
         textField.text = text;
     }

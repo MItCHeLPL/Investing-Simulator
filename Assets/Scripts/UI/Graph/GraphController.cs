@@ -62,19 +62,52 @@ public class GraphController : MonoBehaviour
 	}
 
 
-	//Get closest point from graph to touch/mouse
+	// Get closest point from graph to touch/mouse
 	private int GetClosestPointIndex(Vector3 position)
 	{
-		int closestIndex = -1;
+		int first = 0;
+		int last = graphUILineRenderer.Points.Length - 1;
+		int mid = 0;
 
-		float closestDistance = float.MaxValue;
-
-		for (int i = 0; i < graphUILineRenderer.Points.Length; i++)
+		// Do 3 binary search splits to narrow down area to look for closest index
+		for (int i=0; i < 3; i++)
 		{
-			if (Mathf.Abs(position.x - graphUILineRenderer.Points[i].x) < closestDistance)
+			mid = first + (last - first) / 2;
+
+			if (graphUILineRenderer.Points[mid].x == position.x)
+			{
+				return mid;
+			}
+			else
+			{
+				if (position.x > graphUILineRenderer.Points[mid].x)
+				{
+					last = mid - 1;
+				}
+				else
+				{
+					first = mid + 1;
+				}
+			}
+		}
+
+		// Go through all points in area and find closest one
+		// if getting away from closest break loop and return index
+		int closestIndex = first;
+		float prevDistance = float.MaxValue;
+		
+		for (int i = first; i <= last; i++)
+		{
+			float distance = Mathf.Abs(position.x - graphUILineRenderer.Points[i].x);
+
+			if(distance < prevDistance)
 			{
 				closestIndex = i;
-				closestDistance = Mathf.Abs(position.x - graphUILineRenderer.Points[i].x);
+				prevDistance = distance;
+			}
+			else
+			{
+				break;
 			}
 		}
 

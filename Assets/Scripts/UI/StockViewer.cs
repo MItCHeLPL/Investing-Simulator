@@ -11,6 +11,11 @@ public class StockViewer : MonoBehaviour
 	[Header("Settings")]
 	[SerializeField] private string _stockSymbol = "IBM";
 
+	[Space(15)]
+
+	[Tooltip("Refresh data every X seconds.")]
+	[SerializeField] private float _dataRefreshRate = 5.0f;
+
 	[Header("References")]
 	[SerializeField] private StockGenerator stockGenerator;
 	[SerializeField] private GraphGenerator graphGenerator;
@@ -24,8 +29,30 @@ public class StockViewer : MonoBehaviour
 
 	public static Stock CurrentStock = null;
 
+	[Header("Coroutines")]
+	private Coroutine _refreshingViewerCoroutine;
+	private bool _isRefreshingViewerCoroutineRunning;
+
 	[Header("Events")]
 	public UnityEvent OnShow;
+
+
+	private void OnEnable()
+	{
+		if (!_isRefreshingViewerCoroutineRunning)
+		{
+			_refreshingViewerCoroutine = StartCoroutine(RefreshingViewer());
+			_isRefreshingViewerCoroutineRunning = true;
+		}
+	}
+	private void OnDisable()
+	{
+		if (_isRefreshingViewerCoroutineRunning)
+		{
+			StopCoroutine(_refreshingViewerCoroutine);
+			_isRefreshingViewerCoroutineRunning = false;
+		}
+	}
 
 
 	[Button("Show Stock")]
@@ -49,15 +76,31 @@ public class StockViewer : MonoBehaviour
 		}
 		if(symbolText != null)
 		{
+			//UIUtils.ReplaceText(symbolText, "{StockName}", $"{stock.Symbol}");
 			symbolText.SetText(stock.Symbol);
 		}
 		if (currentValueText != null)
 		{
+			//UIUtils.ReplaceText(currentValueText, "{StockCurrentValue}", $"{stock.CurrentValue.ToString()}");
 			currentValueText.SetText(stock.CurrentValue.ToString());
 		}
 
 		OnShow.Invoke();
 
-		//Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, LowestValue: {stock.LowestValue}, HighestValue: {stock.HighestValue}");
+		Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, LowestValue: {stock.LowestCloseValue}, HighestValue: {stock.HighestCloseValue}");
+	}
+
+
+	public IEnumerator RefreshingViewer()
+	{
+		do
+		{
+			yield return new WaitForSecondsRealtime(_dataRefreshRate);
+
+			if (CurrentStock != null)
+			{
+				Show(CurrentStock);
+			}
+		} while (_isRefreshingViewerCoroutineRunning);
 	}
 }

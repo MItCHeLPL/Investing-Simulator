@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 public class StockValue
 {
@@ -41,5 +40,11 @@ public class StockValue
 		Low = alphaVantageTimeValue.Low;
 		Close = alphaVantageTimeValue.Close;
 		Volume = alphaVantageTimeValue.Volume;
+	}
+
+
+	public void Debug()
+	{
+		UnityEngine.Debug.Log($"{Stock} - {Timestamp}; Open: {Open}, Close: {Close}, Low: {Low}, High: {High}, Volume: {Volume}.");
 	}
 }

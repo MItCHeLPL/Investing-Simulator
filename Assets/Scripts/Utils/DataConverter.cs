@@ -53,10 +53,10 @@ public static class DataConverter
 
 	public static double MapFrom01(double value, double newMinValue, double newMaxValue)
 	{
-		return newMinValue + (value - 0) * (newMaxValue - newMinValue) / (1 - 0); //Map value from old range onto a new range
+		return Map(value, 0.0d, 1.0d, newMinValue, newMaxValue);
 	}
 	public static double MapTo01(double value, double oldMinValue, double oldMaxValue)
 	{
-		return 0 + (value - oldMinValue) * (1 - 0) / (oldMaxValue - oldMinValue); //Map value from old range onto a new range
+		return Map(value, oldMinValue, oldMaxValue, 0.0d, 1.0d);
 	}
 }

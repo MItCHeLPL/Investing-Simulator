@@ -7,8 +7,8 @@ public class Stock
 	public List<StockValue> Values;
 
 	public decimal CurrentValue => Values[^1].Close;
-	public decimal HighestValue => GetHighestValue().Close;
-	public decimal LowestValue => GetLowestValue().Close;
+	public decimal HighestCloseValue => GetHighestCloseValue().Close;
+	public decimal LowestCloseValue => GetLowestCloseValue().Close;
 
 
 	public Stock()
@@ -30,7 +30,7 @@ public class Stock
 	}
 
 
-	public StockValue GetHighestValue()
+	public StockValue GetHighestCloseValue()
 	{
 		if(Values.Count > 0)
 		{
@@ -38,7 +38,7 @@ public class Stock
 
 			foreach (StockValue value in Values)
 			{
-				if (value.High > highestValue.High)
+				if (value.Close > highestValue.Close)
 				{
 					highestValue = value;
 				}
@@ -50,7 +50,7 @@ public class Stock
 		return null;
 	}
 
-	public StockValue GetLowestValue()
+	public StockValue GetLowestCloseValue()
 	{
 		if (Values.Count > 0)
 		{
@@ -58,7 +58,7 @@ public class Stock
 
 			foreach (StockValue value in Values)
 			{
-				if (value.Low < lowestValue.Low)
+				if (value.Close < lowestValue.Close)
 				{
 					lowestValue = value;
 				}
@@ -68,5 +68,14 @@ public class Stock
 		}
 
 		return null;
+	}
+
+
+	public void Debug()
+	{
+		foreach(StockValue value in Values)
+		{
+			value.Debug();
+		}
 	}
 }

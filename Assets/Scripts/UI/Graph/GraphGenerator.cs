@@ -43,6 +43,9 @@ public class GraphGenerator : MonoBehaviour
 		Vector3[] panelCorners = new Vector3[4];
 		_graphRect.GetLocalCorners(panelCorners);
 
+		double lowestValue = (double)stock.LowestCloseValue;
+		double highestValue = (double)stock.HighestCloseValue;
+
 		//Labels
 		// X
 		int xLabelCount = 0;
@@ -52,6 +55,10 @@ public class GraphGenerator : MonoBehaviour
 		int yLabelCount = 0;
 		int yLabelEvery = Mathf.FloorToInt((stock.Values.Count - 1) / (_yLabelsAmount - 1));
 
+		//Destroy all old labels 
+		DestroyChilren(labelsContainer.gameObject);
+
+
 		//Generate
 		for (int i = stock.Values.Count - 1; i >= 0; i--)
 		{
@@ -59,7 +66,7 @@ public class GraphGenerator : MonoBehaviour
 
 			// Set point position
 			double time = DataConverter.MapTo01(stockValue.Timestamp.Ticks, stock.Values[^1].Timestamp.Ticks, stock.Values[0].Timestamp.Ticks);
-			double value = DataConverter.MapTo01((double)stockValue.Close, (double)stock.GetLowestValue().Close, (double)stock.GetHighestValue().Close);
+			double value = DataConverter.MapTo01((double)stockValue.Close, lowestValue, highestValue);
 
 			double x = DataConverter.MapFrom01(time, panelCorners[0].x, panelCorners[2].x);
 			double y = DataConverter.MapFrom01(value, panelCorners[0].y, panelCorners[2].y);
@@ -119,7 +126,7 @@ public class GraphGenerator : MonoBehaviour
 				//Text
 				TextMeshProUGUI labelText = instantiation.GetComponent<TextMeshProUGUI>();
 
-				double labelValue = DataConverter.Map(i, 0, (stock.Values.Count - 1), (double)stock.GetLowestValue().Close, (double)stock.GetHighestValue().Close);
+				double labelValue = DataConverter.Map(i, 0, (stock.Values.Count - 1), (double)stock.GetLowestCloseValue().Close, (double)stock.GetHighestCloseValue().Close);
 
 				labelText.SetText(labelValue.ToString("F2"));
 
@@ -129,5 +136,13 @@ public class GraphGenerator : MonoBehaviour
 		}
 
 		OnGeneratedGraph.Invoke();
+	}
+
+	private void DestroyChilren(GameObject panel)
+	{
+		foreach (Transform child in panel.transform)
+		{
+			Destroy(child.gameObject);
+		}
 	}
 }
