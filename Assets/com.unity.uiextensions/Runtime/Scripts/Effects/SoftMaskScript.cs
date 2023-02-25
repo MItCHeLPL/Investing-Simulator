@@ -28,10 +28,10 @@ namespace UnityEngine.UI.Extensions
         [Tooltip("Implement a hard blend based on the Cutoff")]
         public bool HardBlend = false;
 
-        [Tooltip("Flip the masks alpha value")]
+        [Tooltip("Flip the masks alpha Value")]
         public bool FlipAlphaMask = false;
 
-        [Tooltip("If a different Mask Scaling Rect is given, and this value is true, the area around the mask will not be clipped")]
+        [Tooltip("If a different Mask Scaling Rect is given, and this Value is true, the area around the mask will not be clipped")]
         public bool DontClipMaskScalingRect = false;
 
         Vector2 maskOffset = Vector2.zero;

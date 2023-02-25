@@ -30,10 +30,10 @@ namespace UnityEngine.UI.Extensions
         [Tooltip("Curve to apply to the Lerp\nMust be set to enable Lerp")]
         [SerializeField]
         private AnimationCurve m_lerpCurve;
-        [Tooltip("Event fired when value of control changes, outputs an INT angle value")]
+        [Tooltip("Event fired when Value of control changes, outputs an INT angle Value")]
         [SerializeField]
         private RadialSliderValueChangedEvent _onValueChanged = new RadialSliderValueChangedEvent();
-        [Tooltip("Event fired when value of control changes, outputs a TEXT angle value")]
+        [Tooltip("Event fired when Value of control changes, outputs a TEXT angle Value")]
         [SerializeField]
         private RadialSliderTextValueChangedEvent _onTextValueChanged = new RadialSliderTextValueChangedEvent();
 

@@ -27,7 +27,7 @@ public class GraphGenerator : MonoBehaviour
 	public UnityEvent OnGeneratedGraph;
 
 
-	private void Start()
+	private void Awake()
 	{
 		_graphRect = graphUILineRenderer.GetComponent<RectTransform>();
 	}
@@ -65,11 +65,11 @@ public class GraphGenerator : MonoBehaviour
 			StockValue stockValue = stock.Values[i];
 
 			// Set point position
-			double time = DataConverter.MapTo01(stockValue.Timestamp.Ticks, stock.Values[^1].Timestamp.Ticks, stock.Values[0].Timestamp.Ticks);
-			double value = DataConverter.MapTo01((double)stockValue.Close, lowestValue, highestValue);
+			double time = MathUtils.RemapTo01(stockValue.Timestamp.Ticks, stock.Values[^1].Timestamp.Ticks, stock.Values[0].Timestamp.Ticks);
+			double value = MathUtils.RemapTo01((float)stockValue.Close, (float)lowestValue, (float)highestValue);
 
-			double x = DataConverter.MapFrom01(time, panelCorners[0].x, panelCorners[2].x);
-			double y = DataConverter.MapFrom01(value, panelCorners[0].y, panelCorners[2].y);
+			double x = MathUtils.RemapFrom01((float)time, panelCorners[0].x, panelCorners[2].x);
+			double y = MathUtils.RemapFrom01((float)value, panelCorners[0].y, panelCorners[2].y);
 
 			Vector2 pointPositon = new Vector2((float)x, (float)y);
 
@@ -85,7 +85,7 @@ public class GraphGenerator : MonoBehaviour
 				//Position
 				RectTransform labelRect = instantiation.GetComponent<RectTransform>();
 
-				float labelXPosition = (float)DataConverter.Map(i, 0, (stock.Values.Count - 1), panelCorners[0].x, panelCorners[2].x);
+				float labelXPosition = (float)MathUtils.Remap(i, 0, (stock.Values.Count - 1), panelCorners[0].x, panelCorners[2].x);
 
 				float xOffset = labelRect.sizeDelta.x / 4;
 				float yOffset = -(labelRect.sizeDelta.y / 4);
@@ -97,7 +97,7 @@ public class GraphGenerator : MonoBehaviour
 				//Text
 				TextMeshProUGUI labelText = instantiation.GetComponent<TextMeshProUGUI>();
 
-				long labelValue = (long)DataConverter.Map(i, 0, (stock.Values.Count - 1), stock.Values[^1].Timestamp.Ticks, stock.Values[0].Timestamp.Ticks);
+				long labelValue = (long)MathUtils.Remap(i, 0, (stock.Values.Count - 1), stock.Values[^1].Timestamp.Ticks, stock.Values[0].Timestamp.Ticks);
 
 				labelText.SetText(TimeConverter.ConvertTimeStrippedToHoursMinutes(new TimeSpan(labelValue)));
 
@@ -114,7 +114,7 @@ public class GraphGenerator : MonoBehaviour
 				//Position
 				RectTransform labelRect = instantiation.GetComponent<RectTransform>();
 
-				float labelYPosition = (float)DataConverter.Map(i, 0, (stock.Values.Count - 1), panelCorners[0].y, panelCorners[2].y);
+				float labelYPosition = (float)MathUtils.Remap(i, 0, (stock.Values.Count - 1), panelCorners[0].y, panelCorners[2].y);
 
 				float xOffset = -(labelRect.sizeDelta.x / 4);
 				float yOffset = labelRect.sizeDelta.y / 2;
@@ -126,7 +126,7 @@ public class GraphGenerator : MonoBehaviour
 				//Text
 				TextMeshProUGUI labelText = instantiation.GetComponent<TextMeshProUGUI>();
 
-				double labelValue = DataConverter.Map(i, 0, (stock.Values.Count - 1), (double)stock.GetLowestCloseValue().Close, (double)stock.GetHighestCloseValue().Close);
+				double labelValue = MathUtils.Remap(i, 0, (stock.Values.Count - 1), (float)stock.GetLowestCloseValue().Close, (float)stock.GetHighestCloseValue().Close);
 
 				labelText.SetText(labelValue.ToString("F2"));
 

@@ -43,7 +43,7 @@ public class HexColorField : MonoBehaviour
         if (HexToColor(newHex, out color))
             ColorPicker.CurrentColor = color;
         else
-            Debug.Log("hex value is in the wrong format, valid formats are: #RGB, #RGBA, #RRGGBB and #RRGGBBAA (# is optional)");
+            Debug.Log("hex Value is in the wrong format, valid formats are: #RGB, #RGBA, #RRGGBB and #RRGGBBAA (# is optional)");
     }
 
     private string ColorToHex(Color32 color)

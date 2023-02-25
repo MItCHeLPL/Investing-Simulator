@@ -19,8 +19,9 @@ public class StockViewer : MonoBehaviour
 	[Header("References")]
 	[SerializeField] private StockGenerator stockGenerator;
 	[SerializeField] private GraphGenerator graphGenerator;
+	[SerializeField] private StockHolder stockHolder;
 
-	[Space(15)]
+    [Space(15)]
 
 	[SerializeField] private TextMeshProUGUI symbolText;
 	[SerializeField] private TextMeshProUGUI currentValueText;
@@ -62,7 +63,18 @@ public class StockViewer : MonoBehaviour
 	}
 	public void Show(string symbol)
 	{
-		Stock stock = stockGenerator.GenerateAlphaVantageStock(symbol);
+		Stock stock;
+
+		int id = stockHolder.AllStockSymbols.FindIndex(x => x == symbol);
+
+        if (id != -1)
+		{
+			stock = stockHolder.AllStocks[id];
+        }
+		else
+		{
+			stock = stockGenerator.GenerateAlphaVantageStock(symbol, "5min");
+        }
 
 		Show(stock);
 	}
@@ -87,7 +99,7 @@ public class StockViewer : MonoBehaviour
 
 		OnShow.Invoke();
 
-		Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, LowestValue: {stock.LowestCloseValue}, HighestValue: {stock.HighestCloseValue}");
+		//Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, LowestValue: {stock.LowestCloseValue}, HighestValue: {stock.HighestCloseValue}");
 	}
 
 

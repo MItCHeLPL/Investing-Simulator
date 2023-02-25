@@ -33,11 +33,11 @@ namespace UnityEngine.UI.Extensions
         public Direction direction = Direction.CW;
         [HideInInspector]
         public float KnobValue;
-        [Tooltip("Max value of the knob, maximum RAW output value knob can reach, overrides snap step, IF set to 0 or higher than loops, max value will be set by loops")]
+        [Tooltip("Max Value of the knob, maximum RAW output Value knob can reach, overrides snap step, IF set to 0 or higher than loops, max Value will be set by loops")]
         public float MaxValue = 0;
-        [Tooltip("How many rotations knob can do, if higher than max value, the latter will limit max value")]
+        [Tooltip("How many rotations knob can do, if higher than max Value, the latter will limit max Value")]
         public int Loops = 0;
-        [Tooltip("Clamp output value between 0 and 1, useful with loops > 1")]
+        [Tooltip("Clamp output Value between 0 and 1, useful with loops > 1")]
         public bool ClampOutput01 = false;
         [Tooltip("snap to position?")]
         public bool SnapToPosition = false;

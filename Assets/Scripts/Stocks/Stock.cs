@@ -1,12 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
+[Serializable]
 public class Stock
 {
 	public string Symbol;
 	public List<StockValue> Values;
 
-	public decimal CurrentValue => Values[^1].Close;
+	public decimal CurrentValue => Values.Count > 0 ? Values[^1].Close : -1;
 	public decimal HighestCloseValue => GetHighestCloseValue().Close;
 	public decimal LowestCloseValue => GetLowestCloseValue().Close;
 

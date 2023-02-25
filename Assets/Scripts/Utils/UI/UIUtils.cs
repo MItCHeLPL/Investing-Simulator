@@ -5,32 +5,33 @@ using TMPro;
 
 public class UIUtils
 {
-    private static Dictionary<TextMeshProUGUI, string> savedTextFields = new Dictionary<TextMeshProUGUI, string>();
+    private static Dictionary<TextMeshProUGUI, string> _savedTextFields = new Dictionary<TextMeshProUGUI, string>();
 
 
     public static void ReplaceText(TextMeshProUGUI textField, string from, object to)
     {
-        ReplaceText(textField, new string[] { from }, new object[] { to });
-    }
-    public static void ReplaceText(TextMeshProUGUI textField, string[] from, object[] to)
-    {
         string text;
 
-        if (savedTextFields.ContainsKey(textField))
+        if(_savedTextFields.ContainsKey(textField))
         {
-            text = savedTextFields[textField];
+            text = _savedTextFields[textField];
         }
         else
         {
             text = textField.text;
-            savedTextFields.Add(textField, text);
+            _savedTextFields.Add(textField, text);
         }
-
-        for(int i=0; i<from.Length; i++)
-		{
-            text = text.Replace(from[i], to[i].ToString());
-        }
+        
+        text = text.Replace(from, to.ToString());
 
         textField.text = text;
+    }
+
+    public static void ClearContent(Transform transform)
+    {
+        foreach (Transform child in transform) 
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 }

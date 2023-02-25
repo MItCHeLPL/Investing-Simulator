@@ -15,19 +15,19 @@ namespace UnityEngine.UI.Extensions
     {
         private Selectable[] _sides;
         [SerializeField]
-        [Tooltip("The current step value of the control")]
+        [Tooltip("The current step Value of the control")]
         private int _value = 0;
         [SerializeField]
-        [Tooltip("The minimum step value allowed by the control. When reached it will disable the '-' button")]
+        [Tooltip("The minimum step Value allowed by the control. When reached it will disable the '-' button")]
         private int _minimum = 0;
         [SerializeField]
-        [Tooltip("The maximum step value allowed by the control. When reached it will disable the '+' button")]
+        [Tooltip("The maximum step Value allowed by the control. When reached it will disable the '+' button")]
         private int _maximum = 100;
         [SerializeField]
-        [Tooltip("The step increment used to increment / decrement the step value")]
+        [Tooltip("The step increment used to increment / decrement the step Value")]
         private int _step = 1;
         [SerializeField]
-        [Tooltip("Does the step value loop around from end to end")]
+        [Tooltip("Does the step Value loop around from end to end")]
         private bool _wrap = false;
         [SerializeField]
         [Tooltip("A GameObject with an Image to use as a separator between segments. Size of the RectTransform will determine the size of the separator used.\nNote, make sure to disable the separator GO so that it does not affect the scene")]
