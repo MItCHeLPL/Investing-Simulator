@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 [Serializable]
@@ -8,31 +9,45 @@ public class Stock
 	public string Symbol;
 	public List<StockValue> Values;
 
-	public decimal CurrentValue => Values.Count > 0 ? Values[^1].Close : -1;
-	public decimal HighestCloseValue => GetHighestCloseValue().Close;
-	public decimal LowestCloseValue => GetLowestCloseValue().Close;
+	public long GenerateTime;
+
+	public double CurrentValue => Values.Count > 0 ? Values[^1].Close : -1;
+	public double HighestCloseValue => GetHighestCloseValue().Close;
+	public double LowestCloseValue => GetLowestCloseValue().Close;
 
 
 	public Stock()
 	{
 		Symbol = "";
 		Values = new List<StockValue>();
-	}
+        GenerateTime = DateTime.Now.ToBinary(); //Serialize current date
+    }
 	public Stock(string symbol, List<StockValue> values)
 	{
 		Symbol = symbol;
 		Values = values;
-	}
+        GenerateTime = DateTime.Now.ToBinary(); //Serialize current date
+    }
 	public Stock(AlphaVantageData alphaVantageData)
 	{
 		Symbol = alphaVantageData.Symbol;
 
-		List<StockValue> stockValues = (alphaVantageData.TimeSeries.Select(alphaVantageTimeValue => new StockValue(this, alphaVantageTimeValue))).ToList();
-		Values = stockValues;
-	}
+        Values = (alphaVantageData.TimeSeries.Select(alphaVantageTimeValue => new StockValue(alphaVantageTimeValue))).ToList();
+
+        GenerateTime = DateTime.Now.ToBinary(); //Serialize current date
+    }
+
+    public Stock(Stock stock)
+    {
+        Symbol = stock.Symbol;
+
+        Values = new(stock.Values);
+
+        GenerateTime = stock.GenerateTime;
+    }
 
 
-	public StockValue GetHighestCloseValue()
+    public StockValue GetHighestCloseValue()
 	{
 		if(Values.Count > 0)
 		{
@@ -49,7 +64,7 @@ public class Stock
 			return highestValue;
 		}
 
-		return null;
+		return new(0);
 	}
 
 	public StockValue GetLowestCloseValue()
@@ -69,15 +84,6 @@ public class Stock
 			return lowestValue;
 		}
 
-		return null;
-	}
-
-
-	public void Debug()
-	{
-		foreach(StockValue value in Values)
-		{
-			value.Debug();
-		}
+		return new(0);
 	}
 }

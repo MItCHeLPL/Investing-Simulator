@@ -73,7 +73,7 @@ public class StockViewer : MonoBehaviour
         }
 		else
 		{
-			stock = stockGenerator.GenerateAlphaVantageStock(symbol, "5min");
+			stock = stockGenerator.GenerateAlphaVantageStockInterday(symbol);
         }
 
 		Show(stock);

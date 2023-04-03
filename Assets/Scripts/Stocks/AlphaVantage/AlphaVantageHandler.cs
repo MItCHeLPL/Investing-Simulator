@@ -50,7 +50,8 @@ public static class AlphaVantageHandler
 
 		using (WebClient client = new WebClient())
 		{
-			return client.DownloadString(queryUri);
+            AlphaVantageTimer.UseOutApiCall();
+            return client.DownloadString(queryUri);
 		}
     }
 
@@ -63,6 +64,7 @@ public static class AlphaVantageHandler
 
         using (WebClient client = new WebClient())
         {
+            AlphaVantageTimer.UseOutApiCall();
             return client.DownloadString(queryUri);
         }
     }

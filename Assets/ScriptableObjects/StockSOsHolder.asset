@@ -1,0 +1,2530 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd4cb02dfe2e1f40973a84ceab0e51f, type: 3}
+  m_Name: StockSOsHolder
+  m_EditorClassIdentifier: 
+  AllSavedStocks:
+  - Symbol: IBM
+    Values:
+    - Open: 131
+      High: 131
+      Low: 131
+      Close: 131
+      Volume: 100
+    - Open: 131
+      High: 131
+      Low: 131
+      Close: 131
+      Volume: 137
+    - Open: 130.88
+      High: 130.88
+      Low: 130.88
+      Close: 130.88
+      Volume: 1237
+    - Open: 131.05
+      High: 131.05
+      Low: 131.05
+      Close: 131.05
+      Volume: 241
+    - Open: 131.1299
+      High: 131.1299
+      Low: 131.1299
+      Close: 131.1299
+      Volume: 150
+    - Open: 131
+      High: 131.13
+      Low: 131
+      Close: 131.09
+      Volume: 2644
+    - Open: 130.9
+      High: 130.9
+      Low: 130.9
+      Close: 130.9
+      Volume: 200
+    - Open: 131.09
+      High: 131.1999
+      Low: 131.09
+      Close: 131.0927
+      Volume: 83272
+    - Open: 131.09
+      High: 131.09
+      Low: 131.09
+      Close: 131.09
+      Volume: 213818
+    - Open: 130.83
+      High: 131.23
+      Low: 130.6932
+      Close: 131.07
+      Volume: 906102
+    - Open: 131.07
+      High: 131.1
+      Low: 130.78
+      Close: 130.83
+      Volume: 192903
+    - Open: 130.71
+      High: 131.09
+      Low: 130.7
+      Close: 131.05
+      Volume: 172042
+    - Open: 130.46
+      High: 130.74
+      Low: 130.45
+      Close: 130.71
+      Volume: 139219
+    - Open: 130.45
+      High: 130.61
+      Low: 130.435
+      Close: 130.45
+      Volume: 89487
+    - Open: 130.48
+      High: 130.505
+      Low: 130.4
+      Close: 130.47
+      Volume: 74537
+    - Open: 130.47
+      High: 130.535
+      Low: 130.435
+      Close: 130.48
+      Volume: 65737
+    - Open: 130.28
+      High: 130.46
+      Low: 130.27
+      Close: 130.46
+      Volume: 78496
+    - Open: 130.1884
+      High: 130.29
+      Low: 130.14
+      Close: 130.2706
+      Volume: 58884
+    - Open: 130.24
+      High: 130.245
+      Low: 130.13
+      Close: 130.18
+      Volume: 70669
+    - Open: 130.38
+      High: 130.4
+      Low: 130.205
+      Close: 130.22
+      Volume: 81826
+    - Open: 130.34
+      High: 130.44
+      Low: 130.33
+      Close: 130.37
+      Volume: 65002
+    - Open: 130.4561
+      High: 130.48
+      Low: 130.31
+      Close: 130.3372
+      Volume: 69470
+    - Open: 130.38
+      High: 130.535
+      Low: 130.35
+      Close: 130.46
+      Volume: 105356
+    - Open: 130.3
+      High: 130.47
+      Low: 130.28
+      Close: 130.38
+      Volume: 79749
+    - Open: 130.095
+      High: 130.33
+      Low: 130.0938
+      Close: 130.2919
+      Volume: 62609
+    - Open: 130.01
+      High: 130.2492
+      Low: 130.01
+      Close: 130.1
+      Volume: 69396
+    - Open: 130.15
+      High: 130.18
+      Low: 129.97
+      Close: 130.02
+      Volume: 86252
+    - Open: 129.925
+      High: 130.24
+      Low: 129.89
+      Close: 130.15
+      Volume: 62024
+    - Open: 129.9404
+      High: 129.98
+      Low: 129.86
+      Close: 129.925
+      Volume: 65674
+    - Open: 129.98
+      High: 130.215
+      Low: 129.95
+      Close: 129.95
+      Volume: 102787
+    - Open: 129.755
+      High: 129.95
+      Low: 129.745
+      Close: 129.95
+      Volume: 83479
+    - Open: 129.905
+      High: 129.9114
+      Low: 129.64
+      Close: 129.7641
+      Volume: 79572
+    - Open: 129.78
+      High: 129.93
+      Low: 129.75
+      Close: 129.92
+      Volume: 51153
+    - Open: 129.77
+      High: 129.9541
+      Low: 129.73
+      Close: 129.79
+      Volume: 78010
+    - Open: 129.47
+      High: 129.8
+      Low: 129.42
+      Close: 129.78
+      Volume: 127018
+    - Open: 129.57
+      High: 129.57
+      Low: 129.57
+      Close: 129.57
+      Volume: 102
+    - Open: 129.6
+      High: 129.6
+      Low: 129.6
+      Close: 129.6
+      Volume: 1106
+    - Open: 129.7
+      High: 129.7
+      Low: 129.35
+      Close: 129.35
+      Volume: 916
+    - Open: 129.18
+      High: 129.18
+      Low: 129.18
+      Close: 129.18
+      Volume: 100
+    - Open: 129.56
+      High: 129.56
+      Low: 129.56
+      Close: 129.56
+      Volume: 155
+    - Open: 129.4
+      High: 129.4
+      Low: 129.4
+      Close: 129.4
+      Volume: 260
+    - Open: 129.19
+      High: 129.19
+      Low: 129.19
+      Close: 129.19
+      Volume: 500
+    - Open: 129.18
+      High: 129.18
+      Low: 129.18
+      Close: 129.18
+      Volume: 100
+    - Open: 129.1804
+      High: 129.1804
+      Low: 129.1804
+      Close: 129.1804
+      Volume: 379
+    - Open: 129.25
+      High: 129.25
+      Low: 129.25
+      Close: 129.25
+      Volume: 308
+    - Open: 129.22
+      High: 129.22
+      Low: 129.22
+      Close: 129.22
+      Volume: 190061
+    - Open: 129.345
+      High: 129.349
+      Low: 129.165
+      Close: 129.25
+      Volume: 367116
+    - Open: 129.22
+      High: 129.36
+      Low: 129.18
+      Close: 129.3412
+      Volume: 151306
+    - Open: 129.16
+      High: 129.27
+      Low: 129.1
+      Close: 129.225
+      Volume: 107332
+    - Open: 129.235
+      High: 129.33
+      Low: 129.12
+      Close: 129.1533
+      Volume: 88761
+    - Open: 129.42
+      High: 129.438
+      Low: 129.22
+      Close: 129.23
+      Volume: 80577
+    - Open: 129.4
+      High: 129.54
+      Low: 129.375
+      Close: 129.42
+      Volume: 63394
+    - Open: 129.36
+      High: 129.42
+      Low: 129.31
+      Close: 129.39
+      Volume: 59720
+    - Open: 129.3
+      High: 129.42
+      Low: 129.29
+      Close: 129.36
+      Volume: 57139
+    - Open: 129.23
+      High: 129.375
+      Low: 129.13
+      Close: 129.31
+      Volume: 70557
+    - Open: 129.41
+      High: 129.42
+      Low: 129.19
+      Close: 129.24
+      Volume: 58144
+    - Open: 129.3863
+      High: 129.42
+      Low: 129.2301
+      Close: 129.42
+      Volume: 68392
+    - Open: 129.21
+      High: 129.4507
+      Low: 129.2
+      Close: 129.3936
+      Volume: 37421
+    - Open: 129.24
+      High: 129.4399
+      Low: 129.2
+      Close: 129.26
+      Volume: 61142
+    - Open: 129.49
+      High: 129.49
+      Low: 129.21
+      Close: 129.2371
+      Volume: 55945
+    - Open: 129.51
+      High: 129.59
+      Low: 129.4456
+      Close: 129.49
+      Volume: 48360
+    - Open: 129.69
+      High: 129.71
+      Low: 129.5
+      Close: 129.515
+      Volume: 52914
+    - Open: 129.9
+      High: 129.9
+      Low: 129.49
+      Close: 129.6901
+      Volume: 111593
+    - Open: 130.02
+      High: 130.02
+      Low: 129.78
+      Close: 129.91
+      Volume: 64171
+    - Open: 129.915
+      High: 130.05
+      Low: 129.89
+      Close: 130.028
+      Volume: 55542
+    - Open: 130.165
+      High: 130.21
+      Low: 129.9
+      Close: 129.92
+      Volume: 92182
+    - Open: 130.265
+      High: 130.38
+      Low: 130.11
+      Close: 130.16
+      Volume: 80418
+    - Open: 130.095
+      High: 130.33
+      Low: 130.045
+      Close: 130.26
+      Volume: 94400
+    - Open: 129.83
+      High: 130.215
+      Low: 129.6139
+      Close: 130.08
+      Volume: 219170
+    - Open: 130.29
+      High: 130.45
+      Low: 129.83
+      Close: 129.845
+      Volume: 137553
+    - Open: 130.68
+      High: 130.79
+      Low: 130.2
+      Close: 130.315
+      Volume: 142885
+    - Open: 130.16
+      High: 131.48
+      Low: 129.9
+      Close: 130.64
+      Volume: 430483
+    - Open: 130.25
+      High: 130.31
+      Low: 130.25
+      Close: 130.31
+      Volume: 800
+    - Open: 130.31
+      High: 130.31
+      Low: 130.31
+      Close: 130.31
+      Volume: 510
+    - Open: 130.04
+      High: 130.3
+      Low: 130.04
+      Close: 130.3
+      Volume: 906
+    - Open: 130.09
+      High: 130.09
+      Low: 130.09
+      Close: 130.09
+      Volume: 281
+    - Open: 129.58
+      High: 129.58
+      Low: 129.58
+      Close: 129.58
+      Volume: 100
+    - Open: 129.72
+      High: 129.72
+      Low: 129.58
+      Close: 129.58
+      Volume: 200
+    - Open: 129.72
+      High: 129.72
+      Low: 129.72
+      Close: 129.72
+      Volume: 100
+    - Open: 129.65
+      High: 129.65
+      Low: 129.65
+      Close: 129.65
+      Volume: 200
+    - Open: 129.6
+      High: 129.6
+      Low: 129.6
+      Close: 129.6
+      Volume: 301
+    - Open: 129.82
+      High: 129.82
+      Low: 129.82
+      Close: 129.82
+      Volume: 200
+    - Open: 129.71
+      High: 129.71
+      Low: 129.71
+      Close: 129.71
+      Volume: 819
+    - Open: 129.71
+      High: 129.71
+      Low: 129.71
+      Close: 129.71
+      Volume: 148071
+    - Open: 129.8
+      High: 129.98
+      Low: 129.68
+      Close: 129.7
+      Volume: 528125
+    - Open: 129.91
+      High: 129.91
+      Low: 129.645
+      Close: 129.81
+      Volume: 104174
+    - Open: 129.81
+      High: 130.01
+      Low: 129.81
+      Close: 129.925
+      Volume: 128304
+    - Open: 129.73
+      High: 129.825
+      Low: 129.625
+      Close: 129.81
+      Volume: 94406
+    - Open: 129.5
+      High: 129.74
+      Low: 129.44
+      Close: 129.74
+      Volume: 68814
+    - Open: 129.48
+      High: 129.54
+      Low: 129.4098
+      Close: 129.5
+      Volume: 74777
+    - Open: 129.44
+      High: 129.48
+      Low: 129.33
+      Close: 129.48
+      Volume: 43181
+    - Open: 129.3703
+      High: 129.47
+      Low: 129.2658
+      Close: 129.45
+      Volume: 39979
+    - Open: 129.54
+      High: 129.54
+      Low: 129.36
+      Close: 129.36
+      Volume: 45404
+    - Open: 129.71
+      High: 129.72
+      Low: 129.5
+      Close: 129.59
+      Volume: 54355
+    - Open: 129.67
+      High: 129.7
+      Low: 129.57
+      Close: 129.7
+      Volume: 46486
+    - Open: 129.51
+      High: 129.8116
+      Low: 129.49
+      Close: 129.68
+      Volume: 112740
+    - Open: 129.34
+      High: 129.52
+      Low: 129.32
+      Close: 129.52
+      Volume: 57575
+    - Open: 129.25
+      High: 129.34
+      Low: 129.2072
+      Close: 129.34
+      Volume: 50255
+    - Open: 129.45
+      High: 129.47
+      Low: 129.18
+      Close: 129.25
+      Volume: 78194
+    - Open: 129.6
+      High: 129.63
+      Low: 129.4232
+      Close: 129.46
+      Volume: 66830
+    GenerateTime: -8585210494496119559
+  - Symbol: TSLA
+    Values:
+    - Open: 207.9
+      High: 207.96
+      Low: 207.62
+      Close: 207.65
+      Volume: 159641
+    - Open: 207.95
+      High: 208
+      Low: 207.84
+      Close: 207.9
+      Volume: 96818
+    - Open: 207.69
+      High: 208
+      Low: 207.68
+      Close: 207.95
+      Volume: 135660
+    - Open: 207.56
+      High: 207.69
+      Low: 207.56
+      Close: 207.67
+      Volume: 49700
+    - Open: 207.44
+      High: 207.57
+      Low: 207.44
+      Close: 207.56
+      Volume: 62101
+    - Open: 207.4499
+      High: 207.49
+      Low: 207.41
+      Close: 207.45
+      Volume: 28164
+    - Open: 207.48
+      High: 207.5
+      Low: 207.42
+      Close: 207.43
+      Volume: 41684
+    - Open: 207.33
+      High: 207.49
+      Low: 207.33
+      Close: 207.48
+      Volume: 59889
+    - Open: 207.35
+      High: 207.42
+      Low: 207.28
+      Close: 207.35
+      Volume: 88552
+    - Open: 207.41
+      High: 207.45
+      Low: 207.32
+      Close: 207.35
+      Volume: 71537
+    - Open: 207.28
+      High: 207.45
+      Low: 207.21
+      Close: 207.42
+      Volume: 73190
+    - Open: 207.28
+      High: 207.46
+      Low: 207.17
+      Close: 207.23
+      Volume: 81668
+    - Open: 207.27
+      High: 207.32
+      Low: 207.12
+      Close: 207.26
+      Volume: 105601
+    - Open: 207.5
+      High: 207.6
+      Low: 207.2
+      Close: 207.27
+      Volume: 127401
+    - Open: 207.37
+      High: 207.6
+      Low: 207.33
+      Close: 207.47
+      Volume: 418877
+    - Open: 207.46
+      High: 207.5
+      Low: 207.1
+      Close: 207.39
+      Volume: 1095870
+    - Open: 206.26
+      High: 207.55
+      Low: 206.1116
+      Close: 207.45
+      Volume: 8561205
+    - Open: 207.06
+      High: 207.19
+      Low: 206.02
+      Close: 206.2718
+      Volume: 5062180
+    - Open: 207.01
+      High: 207.35
+      Low: 206.6611
+      Close: 207.0301
+      Volume: 5057378
+    - Open: 207.03
+      High: 207.79
+      Low: 206.93
+      Close: 206.98
+      Volume: 5352910
+    - Open: 207.0301
+      High: 207.28
+      Low: 206.742
+      Close: 207.06
+      Volume: 3799913
+    - Open: 206.91
+      High: 207.4
+      Low: 206.74
+      Close: 207.045
+      Volume: 4219608
+    - Open: 206.892
+      High: 207.18
+      Low: 206.62
+      Close: 206.89
+      Volume: 5221251
+    - Open: 205.69
+      High: 207
+      Low: 205.64
+      Close: 206.89
+      Volume: 6584841
+    - Open: 204.73
+      High: 205.8
+      Low: 204.7101
+      Close: 205.6769
+      Volume: 4374708
+    - Open: 204.82
+      High: 205.35
+      Low: 204.62
+      Close: 204.73
+      Volume: 4476956
+    - Open: 205.03
+      High: 205.68
+      Low: 204.73
+      Close: 204.83
+      Volume: 4971422
+    - Open: 204.8955
+      High: 205.3
+      Low: 204.1201
+      Close: 205.035
+      Volume: 6190689
+    - Open: 205.835
+      High: 205.94
+      Low: 204.45
+      Close: 204.899
+      Volume: 7045792
+    - Open: 205.32
+      High: 206.34
+      Low: 205.1
+      Close: 205.84
+      Volume: 7394551
+    - Open: 204.6901
+      High: 205.45
+      Low: 204.3901
+      Close: 205.32
+      Volume: 7477317
+    - Open: 204.1624
+      High: 204.91
+      Low: 203.91
+      Close: 204.6801
+      Volume: 7316587
+    - Open: 202.6811
+      High: 204.37
+      Low: 202.64
+      Close: 204.1608
+      Volume: 7847127
+    - Open: 202.0241
+      High: 202.99
+      Low: 200.38
+      Close: 202.69
+      Volume: 6044057
+    - Open: 201.14
+      High: 202.24
+      Low: 200.9
+      Close: 202.0241
+      Volume: 5744119
+    - Open: 201.3
+      High: 201.65
+      Low: 200.66
+      Close: 201.125
+      Volume: 5526477
+    - Open: 200.31
+      High: 201.85
+      Low: 200.22
+      Close: 201.2961
+      Volume: 6821021
+    - Open: 199.72
+      High: 200.66
+      Low: 199.66
+      Close: 200.3
+      Volume: 7187198
+    - Open: 199.58
+      High: 199.9
+      Low: 199.1001
+      Close: 199.7299
+      Volume: 5496266
+    - Open: 198.93
+      High: 199.755
+      Low: 198.81
+      Close: 199.5897
+      Volume: 6286994
+    - Open: 198.6201
+      High: 199.4599
+      Low: 198.51
+      Close: 198.88
+      Volume: 6906433
+    - Open: 197.53
+      High: 199.1
+      Low: 197.2
+      Close: 198.6575
+      Volume: 10813884
+    - Open: 197.06
+      High: 197.67
+      Low: 196.95
+      Close: 197.51
+      Volume: 362513
+    - Open: 196.81
+      High: 197.1
+      Low: 196.8
+      Close: 197.07
+      Volume: 254563
+    - Open: 196.61
+      High: 197.02
+      Low: 196.4
+      Close: 196.88
+      Volume: 286888
+    - Open: 196.07
+      High: 197.42
+      Low: 195.8
+      Close: 196.6
+      Volume: 725419
+    - Open: 195.95
+      High: 196.16
+      Low: 195.68
+      Close: 196.16
+      Volume: 125830
+    - Open: 196.2186
+      High: 196.55
+      Low: 195.4415
+      Close: 195.95
+      Volume: 256669
+    - Open: 196.05
+      High: 196.05
+      Low: 195.77
+      Close: 195.78
+      Volume: 54111
+    - Open: 196.14
+      High: 196.16
+      Low: 196.04
+      Close: 196.05
+      Volume: 17172
+    - Open: 196.05
+      High: 196.22
+      Low: 195.96
+      Close: 196.21
+      Volume: 33900
+    - Open: 195.8
+      High: 196.15
+      Low: 195.77
+      Close: 196.02
+      Volume: 86856
+    - Open: 195.65
+      High: 195.79
+      Low: 195.46
+      Close: 195.79
+      Volume: 22327
+    - Open: 195.74
+      High: 195.8
+      Low: 195.65
+      Close: 195.75
+      Volume: 7857
+    - Open: 195.63
+      High: 195.7
+      Low: 195.27
+      Close: 195.68
+      Volume: 22178
+    - Open: 195.89
+      High: 195.89
+      Low: 195.5
+      Close: 195.61
+      Volume: 8985
+    - Open: 196.25
+      High: 196.3
+      Low: 195.75
+      Close: 195.87
+      Volume: 10628
+    - Open: 196.24
+      High: 196.28
+      Low: 196.09
+      Close: 196.24
+      Volume: 10679
+    - Open: 195.91
+      High: 196.31
+      Low: 195.9
+      Close: 196.27
+      Volume: 18014
+    - Open: 195.58
+      High: 196
+      Low: 195.58
+      Close: 195.95
+      Volume: 12995
+    - Open: 195.57
+      High: 195.65
+      Low: 195.5
+      Close: 195.5
+      Volume: 4892
+    - Open: 195.43
+      High: 195.85
+      Low: 195.32
+      Close: 195.57
+      Volume: 12778
+    - Open: 195.51
+      High: 195.51
+      Low: 195.15
+      Close: 195.45
+      Volume: 28331
+    - Open: 195.35
+      High: 195.85
+      Low: 195.3
+      Close: 195.5
+      Volume: 40436
+    - Open: 195.42
+      High: 195.63
+      Low: 195.25
+      Close: 195.35
+      Volume: 81505
+    - Open: 195.34
+      High: 195.5
+      Low: 195.33
+      Close: 195.42
+      Volume: 55054
+    - Open: 195.3
+      High: 195.34
+      Low: 195.22
+      Close: 195.3
+      Volume: 19723
+    - Open: 195.26
+      High: 195.3
+      Low: 195.2
+      Close: 195.22
+      Volume: 22668
+    - Open: 195.37
+      High: 195.43
+      Low: 195.24
+      Close: 195.24
+      Volume: 20144
+    - Open: 195.22
+      High: 195.37
+      Low: 195.2
+      Close: 195.35
+      Volume: 22709
+    - Open: 195.2799
+      High: 195.3
+      Low: 195.19
+      Close: 195.19
+      Volume: 13223
+    - Open: 195.37
+      High: 195.37
+      Low: 195.05
+      Close: 195.24
+      Volume: 53907
+    - Open: 195.47
+      High: 195.48
+      Low: 195.34
+      Close: 195.38
+      Volume: 19458
+    - Open: 195.33
+      High: 195.48
+      Low: 195.33
+      Close: 195.47
+      Volume: 22398
+    - Open: 195.4
+      High: 195.42
+      Low: 195.32
+      Close: 195.33
+      Volume: 19985
+    - Open: 195.45
+      High: 195.56
+      Low: 195.32
+      Close: 195.36
+      Volume: 216934
+    - Open: 195.64
+      High: 195.65
+      Low: 195.42
+      Close: 195.5
+      Volume: 38781
+    - Open: 195.63
+      High: 195.68
+      Low: 195.5134
+      Close: 195.64
+      Volume: 34387
+    - Open: 195.57
+      High: 195.86
+      Low: 195.57
+      Close: 195.61
+      Volume: 112424
+    - Open: 195.26
+      High: 195.67
+      Low: 195.15
+      Close: 195.65
+      Volume: 719814
+    - Open: 195.835
+      High: 196.025
+      Low: 195.15
+      Close: 195.28
+      Volume: 4118926
+    - Open: 195.6898
+      High: 196.1
+      Low: 195.57
+      Close: 195.84
+      Volume: 2756586
+    - Open: 195.5712
+      High: 195.89
+      Low: 195.31
+      Close: 195.6876
+      Volume: 2445584
+    - Open: 195.63
+      High: 195.98
+      Low: 195.08
+      Close: 195.58
+      Volume: 3130492
+    - Open: 195.6855
+      High: 195.83
+      Low: 195.3048
+      Close: 195.6262
+      Volume: 2501582
+    - Open: 196.31
+      High: 196.54
+      Low: 195.67
+      Close: 195.6999
+      Volume: 2711152
+    - Open: 195.5811
+      High: 196.74
+      Low: 195.48
+      Close: 196.3087
+      Volume: 3117147
+    - Open: 195.79
+      High: 196.04
+      Low: 195.33
+      Close: 195.61
+      Volume: 3155694
+    - Open: 196.02
+      High: 196.08
+      Low: 195.5
+      Close: 195.7973
+      Volume: 3463116
+    - Open: 197.01
+      High: 197.1599
+      Low: 195.75
+      Close: 196.03
+      Volume: 4123415
+    - Open: 196.7101
+      High: 197.26
+      Low: 196.7
+      Close: 197.0111
+      Volume: 4656742
+    - Open: 195.98
+      High: 196.77
+      Low: 195.72
+      Close: 196.7208
+      Volume: 3062524
+    - Open: 195.564
+      High: 196.1777
+      Low: 195.41
+      Close: 195.9801
+      Volume: 2635572
+    - Open: 195.39
+      High: 195.6584
+      Low: 194.96
+      Close: 195.5601
+      Volume: 3234188
+    - Open: 195.92
+      High: 196
+      Low: 195.17
+      Close: 195.4
+      Volume: 3237606
+    - Open: 196.36
+      High: 196.37
+      Low: 195.61
+      Close: 195.9399
+      Volume: 3081002
+    - Open: 196.59
+      High: 196.76
+      Low: 195.95
+      Close: 196.36
+      Volume: 2979524
+    - Open: 196.45
+      High: 196.77
+      Low: 195.94
+      Close: 196.61
+      Volume: 3315979
+    - Open: 196.715
+      High: 197.33
+      Low: 196.29
+      Close: 196.45
+      Volume: 4308190
+    - Open: 195.92
+      High: 197.15
+      Low: 195.7501
+      Close: 196.7077
+      Volume: 5781353
+    GenerateTime: -8585210494494618505
+  - Symbol: AAPL
+    Values:
+    - Open: 164.9
+      High: 164.93
+      Low: 164.88
+      Close: 164.9
+      Volume: 9848
+    - Open: 164.86
+      High: 164.92
+      Low: 164.86
+      Close: 164.88
+      Volume: 3640
+    - Open: 164.85
+      High: 164.86
+      Low: 164.85
+      Close: 164.85
+      Volume: 1558
+    - Open: 164.87
+      High: 164.9
+      Low: 164.81
+      Close: 164.81
+      Volume: 8562
+    - Open: 164.8
+      High: 164.87
+      Low: 164.78
+      Close: 164.87
+      Volume: 7391
+    - Open: 164.76
+      High: 164.85
+      Low: 164.75
+      Close: 164.82
+      Volume: 11455
+    - Open: 164.8
+      High: 164.82
+      Low: 164.73
+      Close: 164.73
+      Volume: 6872
+    - Open: 164.75
+      High: 164.8
+      Low: 164.71
+      Close: 164.7999
+      Volume: 11127
+    - Open: 164.82
+      High: 164.82
+      Low: 164.74
+      Close: 164.75
+      Volume: 15216
+    - Open: 164.84
+      High: 164.84
+      Low: 164.81
+      Close: 164.82
+      Volume: 24563
+    - Open: 164.85
+      High: 164.87
+      Low: 164.82
+      Close: 164.84
+      Volume: 6362
+    - Open: 164.82
+      High: 164.9
+      Low: 164.81
+      Close: 164.85
+      Volume: 17346
+    - Open: 164.85
+      High: 164.9
+      Low: 164.82
+      Close: 164.82
+      Volume: 18169
+    - Open: 164.82
+      High: 164.9
+      Low: 164.8
+      Close: 164.85
+      Volume: 55341
+    - Open: 164.86
+      High: 164.9
+      Low: 164.82
+      Close: 164.82
+      Volume: 1215852
+    - Open: 164.9
+      High: 164.92
+      Low: 164.63
+      Close: 164.85
+      Volume: 3461798
+    - Open: 164.365
+      High: 165
+      Low: 164.125
+      Close: 164.84
+      Volume: 9210633
+    - Open: 164.88
+      High: 164.96
+      Low: 164.335
+      Close: 164.365
+      Volume: 3486894
+    - Open: 164.655
+      High: 164.94
+      Low: 164.61
+      Close: 164.88
+      Volume: 3119192
+    - Open: 164.22
+      High: 164.75
+      Low: 164.21
+      Close: 164.65
+      Volume: 2552040
+    - Open: 164.16
+      High: 164.24
+      Low: 164.04
+      Close: 164.23
+      Volume: 1225450
+    - Open: 164.075
+      High: 164.24
+      Low: 164
+      Close: 164.17
+      Volume: 1121596
+    - Open: 164.07
+      High: 164.1
+      Low: 163.92
+      Close: 164.075
+      Volume: 1017602
+    - Open: 163.96
+      High: 164.175
+      Low: 163.9313
+      Close: 164.065
+      Volume: 1196667
+    - Open: 163.691
+      High: 163.98
+      Low: 163.691
+      Close: 163.9571
+      Volume: 1069527
+    - Open: 163.88
+      High: 163.94
+      Low: 163.65
+      Close: 163.69
+      Volume: 757026
+    - Open: 163.88
+      High: 164.075
+      Low: 163.82
+      Close: 163.885
+      Volume: 1425412
+    - Open: 163.81
+      High: 163.89
+      Low: 163.57
+      Close: 163.8784
+      Volume: 1334070
+    - Open: 163.99
+      High: 164.04
+      Low: 163.78
+      Close: 163.8
+      Volume: 1707224
+    - Open: 163.885
+      High: 163.99
+      Low: 163.65
+      Close: 163.99
+      Volume: 1639630
+    - Open: 163.42
+      High: 163.9
+      Low: 163.3833
+      Close: 163.89
+      Volume: 1693170
+    - Open: 163.22
+      High: 163.44
+      Low: 163.15
+      Close: 163.43
+      Volume: 1053124
+    - Open: 163.18
+      High: 163.25
+      Low: 163.06
+      Close: 163.22
+      Volume: 975668
+    - Open: 163.0975
+      High: 163.26
+      Low: 162.92
+      Close: 163.1868
+      Volume: 1199425
+    - Open: 162.83
+      High: 163.17
+      Low: 162.72
+      Close: 163.0962
+      Volume: 1733353
+    - Open: 162.8
+      High: 162.97
+      Low: 162.7093
+      Close: 162.83
+      Volume: 1013214
+    - Open: 162.88
+      High: 163.02
+      Low: 162.67
+      Close: 162.785
+      Volume: 1551655
+    - Open: 162.565
+      High: 162.925
+      Low: 162.52
+      Close: 162.8621
+      Volume: 1436188
+    - Open: 162.531
+      High: 162.6971
+      Low: 162.45
+      Close: 162.56
+      Volume: 1723275
+    - Open: 162.71
+      High: 162.9
+      Low: 162.25
+      Close: 162.53
+      Volume: 2014484
+    - Open: 162.74
+      High: 163
+      Low: 162.51
+      Close: 162.705
+      Volume: 2077778
+    - Open: 162.44
+      High: 163.09
+      Low: 161.91
+      Close: 162.75
+      Volume: 3686891
+    - Open: 162.5
+      High: 162.57
+      Low: 162.12
+      Close: 162.42
+      Volume: 95743
+    - Open: 162.19
+      High: 162.5
+      Low: 162.02
+      Close: 162.5
+      Volume: 64413
+    - Open: 162.28
+      High: 162.28
+      Low: 162.05
+      Close: 162.16
+      Volume: 87074
+    - Open: 162.13
+      High: 162.8
+      Low: 162.13
+      Close: 162.2
+      Volume: 156598
+    - Open: 162.14
+      High: 162.25
+      Low: 162
+      Close: 162.25
+      Volume: 34311
+    - Open: 162.21
+      High: 162.64
+      Low: 161.955
+      Close: 162.13
+      Volume: 32241
+    - Open: 162.18
+      High: 162.18
+      Low: 162.11
+      Close: 162.11
+      Volume: 11475
+    - Open: 162.2
+      High: 162.24
+      Low: 162.15
+      Close: 162.2
+      Volume: 4418
+    - Open: 162.16
+      High: 162.19
+      Low: 162.11
+      Close: 162.19
+      Volume: 4869
+    - Open: 162.08
+      High: 162.18
+      Low: 162.02
+      Close: 162.1
+      Volume: 22243
+    - Open: 162.07
+      High: 162.07
+      Low: 161.84
+      Close: 162.04
+      Volume: 13246
+    - Open: 162.05
+      High: 162.07
+      Low: 162.05
+      Close: 162.07
+      Volume: 1552
+    - Open: 162.12
+      High: 162.12
+      Low: 162
+      Close: 162
+      Volume: 5238
+    - Open: 162.1
+      High: 162.1
+      Low: 162.05
+      Close: 162.05
+      Volume: 2267
+    - Open: 162.11
+      High: 162.14
+      Low: 162.11
+      Close: 162.14
+      Volume: 649
+    - Open: 162.12
+      High: 162.14
+      Low: 162.06
+      Close: 162.06
+      Volume: 1152
+    - Open: 162.01
+      High: 162.1
+      Low: 161.93
+      Close: 162.04
+      Volume: 3200
+    - Open: 162
+      High: 162.01
+      Low: 162
+      Close: 162.01
+      Volume: 1104
+    - Open: 162.09
+      High: 162.1
+      Low: 162.09
+      Close: 162.1
+      Volume: 1861
+    - Open: 161.97
+      High: 162.04
+      Low: 161.97
+      Close: 162.04
+      Volume: 2321
+    - Open: 162.39
+      High: 162.5
+      Low: 162.01
+      Close: 162.22
+      Volume: 6177
+    - Open: 162.41
+      High: 162.47
+      Low: 162.39
+      Close: 162.44
+      Volume: 14383
+    - Open: 162.32
+      High: 162.43
+      Low: 162.32
+      Close: 162.41
+      Volume: 4757
+    - Open: 162.26
+      High: 162.36
+      Low: 162.26
+      Close: 162.3
+      Volume: 3874
+    - Open: 162.3
+      High: 162.35
+      Low: 162.27
+      Close: 162.27
+      Volume: 2514
+    - Open: 162.24
+      High: 162.29
+      Low: 162.22
+      Close: 162.29
+      Volume: 4978
+    - Open: 162.2
+      High: 162.29
+      Low: 162.2
+      Close: 162.22
+      Volume: 7187
+    - Open: 162.24
+      High: 162.24
+      Low: 162.2
+      Close: 162.21
+      Volume: 2270
+    - Open: 162.25
+      High: 162.29
+      Low: 162.22
+      Close: 162.26
+      Volume: 8828
+    - Open: 162.27
+      High: 162.29
+      Low: 162.26
+      Close: 162.27
+      Volume: 4999
+    - Open: 162.31
+      High: 162.3199
+      Low: 162.26
+      Close: 162.27
+      Volume: 3747
+    - Open: 162.3372
+      High: 162.36
+      Low: 162.31
+      Close: 162.32
+      Volume: 9858
+    - Open: 162.31
+      High: 162.32
+      Low: 162.3
+      Close: 162.31
+      Volume: 2577394
+    - Open: 162.36
+      High: 162.37
+      Low: 162.3101
+      Close: 162.35
+      Volume: 6103
+    - Open: 162.36
+      High: 162.43
+      Low: 162.36
+      Close: 162.3991
+      Volume: 38416
+    - Open: 162.39
+      High: 162.39
+      Low: 162.35
+      Close: 162.36
+      Volume: 49775
+    - Open: 162.36
+      High: 162.46
+      Low: 162.3
+      Close: 162.43
+      Volume: 2203077
+    - Open: 162.1
+      High: 162.38
+      Low: 161.99
+      Close: 162.37
+      Volume: 3209722
+    - Open: 162.125
+      High: 162.21
+      Low: 162
+      Close: 162.1
+      Volume: 1367895
+    - Open: 162.0331
+      High: 162.2018
+      Low: 161.97
+      Close: 162.13
+      Volume: 1152673
+    - Open: 162.05
+      High: 162.12
+      Low: 161.86
+      Close: 162.035
+      Volume: 1047740
+    - Open: 162.1306
+      High: 162.17
+      Low: 162.005
+      Close: 162.05
+      Volume: 771704
+    - Open: 162.16
+      High: 162.3318
+      Low: 162.08
+      Close: 162.13
+      Volume: 1305380
+    - Open: 161.94
+      High: 162.18
+      Low: 161.8999
+      Close: 162.1542
+      Volume: 1177240
+    - Open: 161.58
+      High: 161.95
+      Low: 161.545
+      Close: 161.945
+      Volume: 1266411
+    - Open: 161.5
+      High: 161.62
+      Low: 161.35
+      Close: 161.58
+      Volume: 979631
+    - Open: 161.84
+      High: 161.85
+      Low: 161.365
+      Close: 161.505
+      Volume: 1182844
+    - Open: 161.965
+      High: 162.05
+      Low: 161.8
+      Close: 161.84
+      Volume: 838783
+    - Open: 161.725
+      High: 162.02
+      Low: 161.645
+      Close: 161.9668
+      Volume: 906412
+    - Open: 161.89
+      High: 161.91
+      Low: 161.62
+      Close: 161.7284
+      Volume: 1092432
+    - Open: 162.01
+      High: 162.09
+      Low: 161.82
+      Close: 161.8737
+      Volume: 1104225
+    - Open: 162.11
+      High: 162.135
+      Low: 161.9
+      Close: 162.006
+      Volume: 1324197
+    - Open: 162.09
+      High: 162.225
+      Low: 161.93
+      Close: 162.11
+      Volume: 1176019
+    - Open: 162.105
+      High: 162.16
+      Low: 161.96
+      Close: 162.0846
+      Volume: 1269745
+    - Open: 162.09
+      High: 162.155
+      Low: 161.95
+      Close: 162.1
+      Volume: 1121000
+    - Open: 162.15
+      High: 162.34
+      Low: 161.98
+      Close: 162.09
+      Volume: 1384412
+    - Open: 162.325
+      High: 162.395
+      Low: 162.08
+      Close: 162.15
+      Volume: 1414596
+    - Open: 162.2299
+      High: 162.37
+      Low: 162.02
+      Close: 162.32
+      Volume: 1351936
+    GenerateTime: -8585210494493132487
+  - Symbol: GOOGL
+    Values:
+    - Open: 103.73
+      High: 103.73
+      Low: 103.55
+      Close: 103.55
+      Volume: 6854
+    - Open: 103.65
+      High: 103.72
+      Low: 103.64
+      Close: 103.7199
+      Volume: 7296
+    - Open: 103.64
+      High: 103.66
+      Low: 103.62
+      Close: 103.66
+      Volume: 6826
+    - Open: 103.64
+      High: 103.66
+      Low: 103.6201
+      Close: 103.6599
+      Volume: 6346
+    - Open: 103.63
+      High: 103.64
+      Low: 103.63
+      Close: 103.64
+      Volume: 2710
+    - Open: 103.61
+      High: 103.65
+      Low: 103.6
+      Close: 103.65
+      Volume: 2503
+    - Open: 103.6499
+      High: 103.6499
+      Low: 103.57
+      Close: 103.58
+      Volume: 1621
+    - Open: 103.66
+      High: 103.73
+      Low: 103.52
+      Close: 103.55
+      Volume: 545835
+    - Open: 103.64
+      High: 103.65
+      Low: 103.64
+      Close: 103.64
+      Volume: 3317
+    - Open: 103.69
+      High: 103.69
+      Low: 103.61
+      Close: 103.63
+      Volume: 6602
+    - Open: 103.68
+      High: 103.71
+      Low: 103.68
+      Close: 103.7
+      Volume: 3716
+    - Open: 103.7
+      High: 103.74
+      Low: 103.67
+      Close: 103.6989
+      Volume: 9239
+    - Open: 103.68
+      High: 103.73
+      Low: 103.67
+      Close: 103.73
+      Volume: 17631
+    - Open: 103.68
+      High: 103.7
+      Low: 103.67
+      Close: 103.69
+      Volume: 9761
+    - Open: 103.73
+      High: 103.73
+      Low: 103.67
+      Close: 103.68
+      Volume: 449592
+    - Open: 103.73
+      High: 103.73
+      Low: 103.5522
+      Close: 103.61
+      Volume: 1436958
+    - Open: 103.18
+      High: 103.89
+      Low: 103.16
+      Close: 103.69
+      Volume: 5223090
+    - Open: 103.48
+      High: 103.61
+      Low: 103.17
+      Close: 103.1763
+      Volume: 1532722
+    - Open: 103.15
+      High: 103.49
+      Low: 103.12
+      Close: 103.485
+      Volume: 1110040
+    - Open: 102.99
+      High: 103.285
+      Low: 102.99
+      Close: 103.155
+      Volume: 971175
+    - Open: 102.81
+      High: 103.01
+      Low: 102.77
+      Close: 103
+      Volume: 540757
+    - Open: 102.725
+      High: 102.91
+      Low: 101.3
+      Close: 102.82
+      Volume: 513244
+    - Open: 102.78
+      High: 102.7999
+      Low: 102.59
+      Close: 102.725
+      Volume: 476157
+    - Open: 102.73
+      High: 102.92
+      Low: 102.715
+      Close: 102.7799
+      Volume: 540935
+    - Open: 102.57
+      High: 102.7685
+      Low: 102.57
+      Close: 102.73
+      Volume: 422376
+    - Open: 102.6
+      High: 102.69
+      Low: 102.54
+      Close: 102.575
+      Volume: 454029
+    - Open: 102.39
+      High: 102.65
+      Low: 102.34
+      Close: 102.595
+      Volume: 586648
+    - Open: 102.395
+      High: 102.475
+      Low: 102.23
+      Close: 102.3899
+      Volume: 609025
+    - Open: 102.3059
+      High: 102.45
+      Low: 102.255
+      Close: 102.3999
+      Volume: 528166
+    - Open: 102.49
+      High: 102.53
+      Low: 102.3
+      Close: 102.31
+      Volume: 441829
+    - Open: 102.33
+      High: 102.54
+      Low: 102.3101
+      Close: 102.49
+      Volume: 555847
+    - Open: 102.535
+      High: 102.62
+      Low: 102.33
+      Close: 102.335
+      Volume: 559165
+    - Open: 102.6
+      High: 102.63
+      Low: 102.395
+      Close: 102.54
+      Volume: 710449
+    - Open: 102.555
+      High: 102.73
+      Low: 102.555
+      Close: 102.605
+      Volume: 461993
+    - Open: 102.53
+      High: 102.86
+      Low: 102.5083
+      Close: 102.55
+      Volume: 714122
+    - Open: 102.56
+      High: 102.64
+      Low: 102.3526
+      Close: 102.5228
+      Volume: 1012587
+    - Open: 103.14
+      High: 103.23
+      Low: 102.44
+      Close: 102.5577
+      Volume: 1082289
+    - Open: 102.47
+      High: 103.25
+      Low: 102.43
+      Close: 103.135
+      Volume: 2511671
+    - Open: 101.97
+      High: 102.57
+      Low: 101.885
+      Close: 102.475
+      Volume: 1520318
+    - Open: 101.85
+      High: 102.1798
+      Low: 101.61
+      Close: 101.96
+      Volume: 1131610
+    - Open: 101.51
+      High: 101.89
+      Low: 101.465
+      Close: 101.84
+      Volume: 978459
+    - Open: 101.3
+      High: 101.9201
+      Low: 101.04
+      Close: 101.51
+      Volume: 2176713
+    - Open: 100.97
+      High: 101.33
+      Low: 100.62
+      Close: 101.27
+      Volume: 108761
+    - Open: 100.78
+      High: 101
+      Low: 100.6995
+      Close: 100.99
+      Volume: 15256
+    - Open: 100.84
+      High: 100.9
+      Low: 100.6845
+      Close: 100.7091
+      Volume: 38210
+    - Open: 100.61
+      High: 101.15
+      Low: 100.54
+      Close: 100.88
+      Volume: 64818
+    - Open: 100.6643
+      High: 100.6643
+      Low: 100.54
+      Close: 100.61
+      Volume: 8545
+    - Open: 100.7
+      High: 101.37
+      Low: 100.5316
+      Close: 100.73
+      Volume: 15833
+    - Open: 100.75
+      High: 100.75
+      Low: 100.75
+      Close: 100.75
+      Volume: 425
+    - Open: 100.75
+      High: 100.82
+      Low: 100.75
+      Close: 100.8
+      Volume: 5900
+    - Open: 100.77
+      High: 100.77
+      Low: 100.73
+      Close: 100.73
+      Volume: 1099
+    - Open: 100.79
+      High: 100.9
+      Low: 100.64
+      Close: 100.69
+      Volume: 11490
+    - Open: 100.76
+      High: 100.76
+      Low: 100.64
+      Close: 100.76
+      Volume: 1344
+    - Open: 100.76
+      High: 100.77
+      Low: 100.73
+      Close: 100.77
+      Volume: 948
+    - Open: 100.82
+      High: 100.82
+      Low: 100.73
+      Close: 100.82
+      Volume: 2190
+    - Open: 100.9
+      High: 100.94
+      Low: 100.87
+      Close: 100.94
+      Volume: 1527
+    - Open: 100.89
+      High: 100.89
+      Low: 100.89
+      Close: 100.89
+      Volume: 214
+    - Open: 100.95
+      High: 100.95
+      Low: 100.95
+      Close: 100.95
+      Volume: 197
+    - Open: 100.97
+      High: 100.97
+      Low: 100.97
+      Close: 100.97
+      Volume: 149
+    - Open: 101.09
+      High: 101.09
+      Low: 100.83
+      Close: 100.89
+      Volume: 4735
+    - Open: 100.89
+      High: 101.15
+      Low: 100.89
+      Close: 101.09
+      Volume: 3855
+    - Open: 100.81
+      High: 100.83
+      Low: 100.52
+      Close: 100.81
+      Volume: 9983
+    - Open: 100.8
+      High: 100.82
+      Low: 100.78
+      Close: 100.8184
+      Volume: 5048
+    - Open: 100.79
+      High: 100.8
+      Low: 100.79
+      Close: 100.8
+      Volume: 1034
+    - Open: 100.75
+      High: 100.8
+      Low: 100.75
+      Close: 100.8
+      Volume: 2507
+    - Open: 100.78
+      High: 100.79
+      Low: 100.75
+      Close: 100.79
+      Volume: 2516
+    - Open: 100.78
+      High: 100.78
+      Low: 100.75
+      Close: 100.75
+      Volume: 384
+    - Open: 100.78
+      High: 100.79
+      Low: 100.72
+      Close: 100.72
+      Volume: 2442
+    - Open: 100.8
+      High: 100.84
+      Low: 100.76
+      Close: 100.82
+      Volume: 4076
+    - Open: 100.86
+      High: 100.88
+      Low: 100.81
+      Close: 100.81
+      Volume: 7852
+    - Open: 100.89
+      High: 100.89
+      Low: 100.86
+      Close: 100.8624
+      Volume: 228396
+    - Open: 100.87
+      High: 100.8885
+      Low: 100.8599
+      Close: 100.8872
+      Volume: 2665
+    - Open: 100.8
+      High: 100.86
+      Low: 100.8
+      Close: 100.86
+      Volume: 10832
+    - Open: 100.81
+      High: 100.83
+      Low: 100.79
+      Close: 100.81
+      Volume: 3576
+    - Open: 100.81
+      High: 100.85
+      Low: 100.79
+      Close: 100.8101
+      Volume: 8095
+    - Open: 100.83
+      High: 100.89
+      Low: 100.7703
+      Close: 100.7703
+      Volume: 50456
+    - Open: 100.89
+      High: 100.89
+      Low: 100.72
+      Close: 100.81
+      Volume: 2756214
+    - Open: 100.96
+      High: 100.97
+      Low: 100.735
+      Close: 100.89
+      Volume: 2563498
+    - Open: 100.92
+      High: 101.155
+      Low: 100.8789
+      Close: 100.96
+      Volume: 1255229
+    - Open: 100.773
+      High: 100.94
+      Low: 100.7
+      Close: 100.91
+      Volume: 695595
+    - Open: 100.65
+      High: 100.7751
+      Low: 100.61
+      Close: 100.775
+      Volume: 575288
+    - Open: 100.59
+      High: 100.71
+      Low: 100.58
+      Close: 100.6499
+      Volume: 407971
+    - Open: 100.58
+      High: 100.74
+      Low: 100.53
+      Close: 100.5801
+      Volume: 886440
+    - Open: 100.675
+      High: 100.685
+      Low: 100.55
+      Close: 100.58
+      Volume: 1087078
+    - Open: 100.64
+      High: 100.72
+      Low: 100.57
+      Close: 100.67
+      Volume: 405125
+    - Open: 100.65
+      High: 100.67
+      Low: 100.49
+      Close: 100.64
+      Volume: 465237
+    - Open: 100.6275
+      High: 100.66
+      Low: 100.52
+      Close: 100.66
+      Volume: 495207
+    - Open: 100.73
+      High: 100.7899
+      Low: 100.59
+      Close: 100.63
+      Volume: 412809
+    - Open: 100.65
+      High: 100.74
+      Low: 100.5239
+      Close: 100.72
+      Volume: 388494
+    - Open: 100.615
+      High: 100.77
+      Low: 100.52
+      Close: 100.645
+      Volume: 433361
+    - Open: 100.735
+      High: 100.81
+      Low: 100.545
+      Close: 100.6107
+      Volume: 555054
+    - Open: 100.61
+      High: 100.795
+      Low: 100.56
+      Close: 100.74
+      Volume: 544265
+    - Open: 100.535
+      High: 100.73
+      Low: 100.39
+      Close: 100.615
+      Volume: 590259
+    - Open: 100.615
+      High: 100.66
+      Low: 100.44
+      Close: 100.53
+      Volume: 566560
+    - Open: 100.4716
+      High: 100.64
+      Low: 100.37
+      Close: 100.61
+      Volume: 669371
+    - Open: 100.665
+      High: 100.856
+      Low: 100.2402
+      Close: 100.475
+      Volume: 1039783
+    - Open: 100.55
+      High: 100.875
+      Low: 100.51
+      Close: 100.665
+      Volume: 752220
+    - Open: 100.42
+      High: 100.611
+      Low: 100.33
+      Close: 100.5455
+      Volume: 1155059
+    - Open: 100.595
+      High: 100.685
+      Low: 100.295
+      Close: 100.405
+      Volume: 922148
+    - Open: 100
+      High: 100.67
+      Low: 99.97
+      Close: 100.59
+      Volume: 1638177
+    GenerateTime: -8585210494491187421
+  - Symbol: MSFT
+    Values:
+    - Open: 288.43
+      High: 288.54
+      Low: 288.36
+      Close: 288.54
+      Volume: 3518
+    - Open: 288.4301
+      High: 288.4301
+      Low: 288.31
+      Close: 288.33
+      Volume: 7570
+    - Open: 288.4
+      High: 288.4
+      Low: 288.4
+      Close: 288.4
+      Volume: 630
+    - Open: 288.32
+      High: 288.3999
+      Low: 288.32
+      Close: 288.3999
+      Volume: 962
+    - Open: 288.39
+      High: 288.44
+      Low: 288.39
+      Close: 288.44
+      Volume: 614
+    - Open: 288.3
+      High: 288.34
+      Low: 288.3
+      Close: 288.34
+      Volume: 3333
+    - Open: 288.25
+      High: 288.3
+      Low: 288.16
+      Close: 288.3
+      Volume: 4321
+    - Open: 288.25
+      High: 288.3
+      Low: 288.21
+      Close: 288.3
+      Volume: 1737
+    - Open: 288.3
+      High: 288.37
+      Low: 288.3
+      Close: 288.37
+      Volume: 7001
+    - Open: 288.34
+      High: 288.34
+      Low: 288.31
+      Close: 288.31
+      Volume: 1357
+    - Open: 288.32
+      High: 288.37
+      Low: 288.31
+      Close: 288.37
+      Volume: 4096
+    - Open: 288.4894
+      High: 288.4894
+      Low: 288.31
+      Close: 288.35
+      Volume: 5021
+    - Open: 288.14
+      High: 288.5
+      Low: 288.14
+      Close: 288.5
+      Volume: 8245
+    - Open: 288.54
+      High: 288.55
+      Low: 288.3
+      Close: 288.3
+      Volume: 4598
+    - Open: 288.75
+      High: 288.75
+      Low: 288.3
+      Close: 288.5
+      Volume: 604869
+    - Open: 288.3
+      High: 289.27
+      Low: 288.22
+      Close: 288.7
+      Volume: 1667616
+    - Open: 288.02
+      High: 288.82
+      Low: 287.565
+      Close: 288.23
+      Volume: 3563326
+    - Open: 288.68
+      High: 288.8
+      Low: 287.94
+      Close: 288.0464
+      Volume: 1296458
+    - Open: 287.84
+      High: 288.76
+      Low: 287.84
+      Close: 288.66
+      Volume: 1052946
+    - Open: 287.17
+      High: 288.03
+      Low: 287.16
+      Close: 287.85
+      Volume: 927883
+    - Open: 286.805
+      High: 287.25
+      Low: 286.64
+      Close: 287.21
+      Volume: 558649
+    - Open: 286.68
+      High: 286.97
+      Low: 286.59
+      Close: 286.8
+      Volume: 389206
+    - Open: 286.74
+      High: 286.88
+      Low: 286.46
+      Close: 286.6801
+      Volume: 604966
+    - Open: 286.57
+      High: 287.1769
+      Low: 286.55
+      Close: 286.74
+      Volume: 555674
+    - Open: 286.0599
+      High: 286.63
+      Low: 286.0561
+      Close: 286.55
+      Volume: 487336
+    - Open: 286.35
+      High: 286.45
+      Low: 285.97
+      Close: 286.06
+      Volume: 486720
+    - Open: 286.73
+      High: 286.8299
+      Low: 286.2153
+      Close: 286.34
+      Volume: 604881
+    - Open: 286.64
+      High: 286.74
+      Low: 286.33
+      Close: 286.7298
+      Volume: 712960
+    - Open: 286.2201
+      High: 286.85
+      Low: 286.07
+      Close: 286.64
+      Volume: 973009
+    - Open: 285.76
+      High: 286.23
+      Low: 285.69
+      Close: 286.2218
+      Volume: 755356
+    - Open: 285.124
+      High: 285.835
+      Low: 284.96
+      Close: 285.78
+      Volume: 888265
+    - Open: 285.32
+      High: 285.5
+      Low: 284.91
+      Close: 285.155
+      Volume: 621955
+    - Open: 284.71
+      High: 285.35
+      Low: 284.4336
+      Close: 285.32
+      Volume: 963529
+    - Open: 284.125
+      High: 284.7649
+      Low: 284.0978
+      Close: 284.71
+      Volume: 542760
+    - Open: 283.9899
+      High: 284.66
+      Low: 283.8
+      Close: 284.13
+      Volume: 697783
+    - Open: 283.9
+      High: 284.19
+      Low: 283.78
+      Close: 283.9733
+      Volume: 692577
+    - Open: 283.86
+      High: 284.07
+      Low: 283.22
+      Close: 283.89
+      Volume: 827318
+    - Open: 283.37
+      High: 283.98
+      Low: 283.33
+      Close: 283.85
+      Volume: 883045
+    - Open: 283.3042
+      High: 283.94
+      Low: 283
+      Close: 283.3501
+      Volume: 990182
+    - Open: 283.81
+      High: 284.27
+      Low: 283.07
+      Close: 283.3
+      Volume: 1053869
+    - Open: 283.93
+      High: 284.565
+      Low: 283.68
+      Close: 283.77
+      Volume: 950241
+    - Open: 283.73
+      High: 284.38
+      Low: 283.25
+      Close: 283.96
+      Volume: 1836447
+    - Open: 284.78
+      High: 284.78
+      Low: 283.5
+      Close: 283.95
+      Volume: 52060
+    - Open: 284.2
+      High: 284.8489
+      Low: 284.03
+      Close: 284.73
+      Volume: 32903
+    - Open: 283.82
+      High: 284.4
+      Low: 283.59
+      Close: 284.3
+      Volume: 17932
+    - Open: 283.15
+      High: 284.4
+      Low: 283.05
+      Close: 283.86
+      Volume: 80143
+    - Open: 283.5
+      High: 283.5
+      Low: 283
+      Close: 283.33
+      Volume: 12516
+    - Open: 283.85
+      High: 285
+      Low: 283.1
+      Close: 283.5
+      Volume: 51303
+    - Open: 283.48
+      High: 283.48
+      Low: 283.25
+      Close: 283.25
+      Volume: 2715
+    - Open: 283.75
+      High: 283.75
+      Low: 283.5
+      Close: 283.5
+      Volume: 6392
+    - Open: 283.83
+      High: 283.9
+      Low: 283.7
+      Close: 283.7
+      Volume: 3163
+    - Open: 283.55
+      High: 283.76
+      Low: 283.55
+      Close: 283.76
+      Volume: 3692
+    - Open: 283.59
+      High: 283.6
+      Low: 283.55
+      Close: 283.55
+      Volume: 2387
+    - Open: 283.5
+      High: 283.5
+      Low: 283.5
+      Close: 283.5
+      Volume: 117
+    - Open: 283.7
+      High: 283.7
+      Low: 283.7
+      Close: 283.7
+      Volume: 361
+    - Open: 283.6
+      High: 283.6
+      Low: 283.53
+      Close: 283.53
+      Volume: 497
+    - Open: 283.9
+      High: 283.9
+      Low: 283.81
+      Close: 283.81
+      Volume: 1605
+    - Open: 283.73
+      High: 283.73
+      Low: 283.73
+      Close: 283.73
+      Volume: 131
+    - Open: 283.98
+      High: 283.99
+      Low: 283.65
+      Close: 283.75
+      Volume: 3163
+    - Open: 284
+      High: 284
+      Low: 283.83
+      Close: 283.98
+      Volume: 2201
+    - Open: 283.95
+      High: 284.3
+      Low: 283.95
+      Close: 284.1
+      Volume: 4201
+    - Open: 283.98
+      High: 284.25
+      Low: 283.98
+      Close: 284.25
+      Volume: 5672
+    - Open: 283.83
+      High: 283.94
+      Low: 283.8
+      Close: 283.94
+      Volume: 2188
+    - Open: 283.86
+      High: 283.89
+      Low: 283.68
+      Close: 283.68
+      Volume: 748
+    - Open: 283.55
+      High: 283.92
+      Low: 283.55
+      Close: 283.92
+      Volume: 1901
+    - Open: 283.5
+      High: 283.57
+      Low: 283.3
+      Close: 283.57
+      Volume: 3016
+    - Open: 283.3
+      High: 283.65
+      Low: 283.3
+      Close: 283.5
+      Volume: 6418
+    - Open: 283.35
+      High: 283.5
+      Low: 283.32
+      Close: 283.33
+      Volume: 4686
+    - Open: 283.63
+      High: 283.75
+      Low: 283.2
+      Close: 283.75
+      Volume: 3007
+    - Open: 283.854
+      High: 284
+      Low: 283.83
+      Close: 283.83
+      Volume: 1216
+    - Open: 284
+      High: 284
+      Low: 283.82
+      Close: 283.82
+      Volume: 1226
+    - Open: 283.95
+      High: 284.13
+      Low: 283.9
+      Close: 284.1
+      Volume: 3290
+    - Open: 284.0117
+      High: 284.0285
+      Low: 283.85
+      Close: 283.95
+      Volume: 2547
+    - Open: 284.05
+      High: 284.1035
+      Low: 283.9
+      Close: 284.03
+      Volume: 3208
+    - Open: 284.12
+      High: 284.15
+      Low: 283.9
+      Close: 284.14
+      Volume: 15419
+    - Open: 284.12
+      High: 284.1792
+      Low: 283.94
+      Close: 284.1316
+      Volume: 16013
+    - Open: 284.05
+      High: 284.1886
+      Low: 283.91
+      Close: 284.1886
+      Volume: 1792424
+    - Open: 283.83
+      High: 284.13
+      Low: 283.57
+      Close: 284.09
+      Volume: 1761722
+    - Open: 283.62
+      High: 283.88
+      Low: 283.38
+      Close: 283.83
+      Volume: 810012
+    - Open: 283.275
+      High: 283.69
+      Low: 283.04
+      Close: 283.615
+      Volume: 538196
+    - Open: 283.31
+      High: 283.36
+      Low: 282.88
+      Close: 283.28
+      Volume: 542530
+    - Open: 283.1
+      High: 283.52
+      Low: 282.8901
+      Close: 283.3224
+      Volume: 664325
+    - Open: 283.02
+      High: 283.35
+      Low: 282.83
+      Close: 283.09
+      Volume: 641747
+    - Open: 282.4
+      High: 283.0769
+      Low: 282.265
+      Close: 283.03
+      Volume: 545378
+    - Open: 282.0609
+      High: 282.58
+      Low: 282.02
+      Close: 282.41
+      Volume: 526444
+    - Open: 281.83
+      High: 282.22
+      Low: 281.56
+      Close: 282.03
+      Volume: 421580
+    - Open: 281.76
+      High: 282.08
+      Low: 281.48
+      Close: 281.845
+      Volume: 486792
+    - Open: 282.14
+      High: 282.185
+      Low: 281.5901
+      Close: 281.77
+      Volume: 477371
+    - Open: 282.09
+      High: 282.21
+      Low: 281.68
+      Close: 282.15
+      Volume: 552870
+    - Open: 282.39
+      High: 282.66
+      Low: 281.86
+      Close: 282.08
+      Volume: 577013
+    - Open: 282.89
+      High: 282.89
+      Low: 282.19
+      Close: 282.36
+      Volume: 559814
+    - Open: 283.19
+      High: 283.2
+      Low: 282.6
+      Close: 282.89
+      Volume: 506909
+    - Open: 283.2
+      High: 283.59
+      Low: 282.84
+      Close: 283.1903
+      Volume: 562779
+    - Open: 283.315
+      High: 283.53
+      Low: 282.77
+      Close: 283.2
+      Volume: 531699
+    - Open: 282.7
+      High: 283.39
+      Low: 282.44
+      Close: 283.2901
+      Volume: 579197
+    - Open: 283.2
+      High: 283.75
+      Low: 282.675
+      Close: 282.7
+      Volume: 793632
+    - Open: 282.74
+      High: 283.39
+      Low: 282.553
+      Close: 283.19
+      Volume: 659961
+    - Open: 282.81
+      High: 283.02
+      Low: 282.17
+      Close: 282.76
+      Volume: 807421
+    - Open: 283.55
+      High: 283.68
+      Low: 282.711
+      Close: 282.8099
+      Volume: 723329
+    - Open: 282.81
+      High: 283.81
+      Low: 282.21
+      Close: 283.53
+      Volume: 1193458
+    GenerateTime: -8585210494489703985

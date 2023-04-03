@@ -3243,6 +3243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockGenerator: {fileID: 1888402984}
+  soHolder: {fileID: 11400000, guid: 6ac2ae4872ac872459d394cf54e35462, type: 2}
   AllStockSymbols:
   - IBM
   - TSLA
@@ -3251,9 +3252,17 @@ MonoBehaviour:
   - MSFT
   AllStocks:
   - Symbol: IBM
+    Values: []
+    GenerateTime: -8585210549335642015
   - Symbol: TSLA
+    Values: []
+    GenerateTime: -8585210549335642015
   - Symbol: GOGL
+    Values: []
+    GenerateTime: -8585210549335642015
   - Symbol: V
+    Values: []
+    GenerateTime: -8585210549335642015
   OwnedStocksFromAll: 000000000100000003000000
   HasGeneratedStocks: 0
   maxLoadTime: 5
@@ -4555,6 +4564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1888402983}
   - component: {fileID: 1888402984}
+  - component: {fileID: 1888402985}
   m_Layer: 0
   m_Name: StockGenerator
   m_TagString: Untagged
@@ -4591,6 +4601,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Seed: 0
   AlphaVantageApiKey: 
+--- !u!114 &1888402985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888402982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa31517db635b348bc7cb348cad9acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1905715588
 PrefabInstance:
   m_ObjectHideFlags: 0

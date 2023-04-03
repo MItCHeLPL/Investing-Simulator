@@ -1,29 +1,17 @@
 ﻿using System;
 
-public class StockValue
+[Serializable]
+public struct StockValue
 {
-	public Stock Stock;
-
 	public DateTime Timestamp;
-	public decimal Open;
-	public decimal High;
-	public decimal Low;
-	public decimal Close;
-	public decimal Volume;
+	public double Open;
+	public double High;
+	public double Low;
+	public double Close;
+	public double Volume;
 
-	public StockValue()
+	public StockValue(DateTime timestamp, double open, double high, double low, double close, double volume)
 	{
-		Stock = null;
-		Timestamp = DateTime.Now;
-		Open = 0;
-		High = 0;
-		Low = 0;
-		Close = 0;
-		Volume = 0;
-	}
-	public StockValue(Stock stock, DateTime timestamp, decimal open, decimal high, decimal low, decimal close, decimal volume)
-	{
-		Stock = stock;
 		Timestamp = timestamp;
 		Open = open;
 		High = high;
@@ -31,9 +19,9 @@ public class StockValue
 		Close = close;
 		Volume = volume;
 	}
-	public StockValue(Stock stock, AlphaVantageTimeValue alphaVantageTimeValue)
+
+	public StockValue(AlphaVantageTimeValue alphaVantageTimeValue)
 	{
-		Stock = stock;
 		Timestamp = alphaVantageTimeValue.Timestamp;
 		Open = alphaVantageTimeValue.Open;
 		High = alphaVantageTimeValue.High;
@@ -42,9 +30,13 @@ public class StockValue
 		Volume = alphaVantageTimeValue.Volume;
 	}
 
-
-	public void Debug()
-	{
-		UnityEngine.Debug.Log($"{Stock} - {Timestamp}; Open: {Open}, Close: {Close}, Low: {Low}, High: {High}, Volume: {Volume}.");
-	}
+    public StockValue(double zero)
+    {
+        Timestamp = DateTime.MinValue;
+        Open = zero;
+        High = zero;
+        Low = zero;
+        Close = zero;
+        Volume = zero;
+    }
 }
