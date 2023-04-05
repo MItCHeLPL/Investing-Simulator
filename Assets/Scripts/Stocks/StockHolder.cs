@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using NaughtyAttributes;
 
 public class StockHolder : MonoBehaviour
 {
     [SerializeField] private StockGenerator stockGenerator;
-    [SerializeField] private StockSOsHolder soHolder;
+    [SerializeField] [ReadOnly] private StockListHolder stockListHolder;
 
     public List<string> AllStockSymbols = new List<string>();
 
@@ -31,11 +32,13 @@ public class StockHolder : MonoBehaviour
         AllStocks = new();
         loadTimer.StartTimer();
 
+        stockListHolder.TryDeserialize();
+
         for (int i = 0; i < AllStockSymbols.Count; i++)
         {
             Stock outputStock = null;
 
-            if(soHolder.TryGetStock(AllStockSymbols[i], out Stock stock)) //if stock with this symbol is in SO
+            if(stockListHolder.TryGetStock(AllStockSymbols[i], out Stock stock)) //if stock with this symbol is in SO
             {
                 TimeSpan timeDiff = DateTime.Now.Subtract(DateTime.FromBinary(stock.GenerateTime));
 
@@ -44,10 +47,10 @@ public class StockHolder : MonoBehaviour
                 {
                     outputStock = stockGenerator.GenerateAlphaVantageStock(AllStockSymbols[i]);
 
-                    soHolder.AllSavedStocks[soHolder.AllSavedStocks.FindIndex(x => x == stock)] = outputStock;
+                    stockListHolder.AllSavedStocks[stockListHolder.AllSavedStocks.FindIndex(x => x == stock)] = outputStock;
 
 
-                    Debug.Log($"{outputStock.Symbol} - Genereted new data into SO");
+                    Debug.Log($"{outputStock.Symbol} - Genereted new data into SavedStocks");
                 }
 
                 //Get stock data from SO
@@ -56,7 +59,7 @@ public class StockHolder : MonoBehaviour
                     outputStock = stock;
 
 
-                    Debug.Log($"{outputStock.Symbol} - Loaded from SO");
+                    Debug.Log($"{outputStock.Symbol} - Loaded from SavedStocks");
                 }
             }
 
@@ -68,10 +71,10 @@ public class StockHolder : MonoBehaviour
                 {
                     outputStock = stockGenerator.GenerateAlphaVantageStock(AllStockSymbols[i]);
 
-                    soHolder.AllSavedStocks.Add(outputStock);
+                    stockListHolder.AllSavedStocks.Add(outputStock);
 
 
-                    Debug.Log($"{outputStock.Symbol} - Created new entry in SO from generated data");
+                    Debug.Log($"{outputStock.Symbol} - Created new entry in SavedStocks from generated data");
                 }
 
                 //Over API call limit
@@ -85,6 +88,8 @@ public class StockHolder : MonoBehaviour
         }
 
         yield return new WaitUntil(() => AllStocks[^1].Values.Count > 0 || loadTimer.GetTime() > maxLoadTime); //Wait for stock load
+
+        stockListHolder.Serialize();
 
         HasGeneratedStocks = true;
     }

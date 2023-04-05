@@ -3243,7 +3243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockGenerator: {fileID: 1888402984}
-  soHolder: {fileID: 11400000, guid: 6ac2ae4872ac872459d394cf54e35462, type: 2}
+  stockListHolder:
+    AllSavedStocks: []
   AllStockSymbols:
   - IBM
   - TSLA
