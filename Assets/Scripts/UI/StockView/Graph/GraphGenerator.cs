@@ -64,8 +64,8 @@ public class GraphGenerator : MonoBehaviour
 		{
 			StockValue stockValue = stock.Values[i];
 
-			// Set point position
-			double time = MathUtils.RemapTo01(stockValue.Timestamp.Ticks, stock.Values[^1].Timestamp.Ticks, stock.Values[0].Timestamp.Ticks);
+            // Set point position
+            double time = MathUtils.RemapTo01(stockValue.Timestamp.Ticks, stock.Values[^1].Timestamp.Ticks, stock.Values[0].Timestamp.Ticks);
 			double value = MathUtils.RemapTo01((float)stockValue.Close, (float)lowestValue, (float)highestValue);
 
 			double x = MathUtils.RemapFrom01((float)time, panelCorners[0].x, panelCorners[2].x);

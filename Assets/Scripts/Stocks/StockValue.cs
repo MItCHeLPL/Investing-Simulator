@@ -3,8 +3,9 @@
 [Serializable]
 public struct StockValue
 {
-	public DateTime Timestamp;
-	public double Open;
+	public DateTime Timestamp => DateTime.FromBinary(TimestampBinary);
+    public long TimestampBinary;
+    public double Open;
 	public double High;
 	public double Low;
 	public double Close;
@@ -12,7 +13,7 @@ public struct StockValue
 
 	public StockValue(DateTime timestamp, double open, double high, double low, double close, double volume)
 	{
-		Timestamp = timestamp;
+        TimestampBinary = timestamp.ToBinary();
 		Open = open;
 		High = high;
 		Low = low;
@@ -22,7 +23,7 @@ public struct StockValue
 
 	public StockValue(AlphaVantageTimeValue alphaVantageTimeValue)
 	{
-		Timestamp = alphaVantageTimeValue.Timestamp;
+        TimestampBinary = alphaVantageTimeValue.Timestamp.ToBinary();
 		Open = alphaVantageTimeValue.Open;
 		High = alphaVantageTimeValue.High;
 		Low = alphaVantageTimeValue.Low;
@@ -32,7 +33,7 @@ public struct StockValue
 
     public StockValue(double zero)
     {
-        Timestamp = DateTime.MinValue;
+        TimestampBinary = DateTime.MinValue.ToBinary();
         Open = zero;
         High = zero;
         Low = zero;
