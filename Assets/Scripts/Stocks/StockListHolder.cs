@@ -37,24 +37,25 @@ public struct StockListHolder
 
     public void Serialize()
     {
-        string json = JsonUtility.ToJson(this);
-
-        Debug.Log(json.Length);
-
-        PlayerPrefs.SetString("AllSavedStocks", json); //TODO Change to SystemIO
+        //PlayerPrefsJSONSerializer.Save<StockListHolder>("AllSavedStocks", this);
+        SystemIOJSONSerializer.Save<StockListHolder>("AllSavedStocks.json", this);
     }
 
     public bool TryDeserialize()
     {
-        if (PlayerPrefs.HasKey("AllSavedStocks"))
+        /*if (PlayerPrefsJSONSerializer.FileExists("AllSavedStocks"))
         {
-            string json = PlayerPrefs.GetString("AllSavedStocks"); //TODO Change to SystemIO
+            this = PlayerPrefsJSONSerializer.Load<StockListHolder>("AllSavedStocks");
+            return true;
+        }*/
 
-            this = JsonUtility.FromJson<StockListHolder>(json);
+        string path = SystemIOJSONSerializer.PathForFilename("AllSavedStocks.json");
 
+        if (SystemIOJSONSerializer.FileExists(path))
+        {
+            this = SystemIOJSONSerializer.Load<StockListHolder>("AllSavedStocks.json");
             return true;
         }
-
         else
         {
             AllSavedStocks = new();
