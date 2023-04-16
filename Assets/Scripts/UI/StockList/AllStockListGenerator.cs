@@ -7,9 +7,9 @@ public class AllStockListGenerator : StockListGenerator
     {
         yield return base.GenerateStockFields();
 
-        foreach (Stock stock in stockHolder.StockListHolder.AllSavedStocks)
+        foreach (string symbol in stockHolder.AllAvailableStockSymbols)
         {
-            GenerateField(stock);
+            StartCoroutine(GenerateField(symbol));
         }
     }
 }

@@ -1895,24 +1895,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &616609896 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3491151243994265449, guid: 77922474566f188448022f77a0dcc52c, type: 3}
-  m_PrefabInstance: {fileID: 713240102}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &616609900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616609896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c76cf548fd9d24b8e1eb4ddc9cab16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _useColor: 0
 --- !u!1 &707702619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3243,29 +3225,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockGenerator: {fileID: 1888402984}
-  stockListHolder:
+  StockListHolder:
     AllSavedStocks: []
-  AllStockSymbols:
+    OwnedStockSymbols: []
+  AllAvailableStockSymbols:
   - IBM
   - TSLA
   - AAPL
   - GOOGL
   - MSFT
-  AllStocks:
-  - Symbol: IBM
-    Values: []
-    GenerateTime: -8585210549335642015
-  - Symbol: TSLA
-    Values: []
-    GenerateTime: -8585210549335642015
-  - Symbol: GOGL
-    Values: []
-    GenerateTime: -8585210549335642015
-  - Symbol: V
-    Values: []
-    GenerateTime: -8585210549335642015
-  OwnedStocksFromAll: 000000000100000003000000
-  HasGeneratedStocks: 0
+  - AMZN
+  - WMT
+  HasGeneratedAllStocks: 0
   maxLoadTime: 5
 --- !u!1 &1164239112 stripped
 GameObject:
@@ -3590,24 +3561,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251825673}
   m_CullTransparentMesh: 1
---- !u!1 &1287933342 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3491151243994265449, guid: 77922474566f188448022f77a0dcc52c, type: 3}
-  m_PrefabInstance: {fileID: 79381851}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1287933346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287933342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c76cf548fd9d24b8e1eb4ddc9cab16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _useColor: 0
 --- !u!224 &1356792260 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6170753359807559876, guid: dd9de0325e802904faf06bf65b0d4417, type: 3}

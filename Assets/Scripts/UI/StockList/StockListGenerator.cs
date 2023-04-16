@@ -13,34 +13,44 @@ public class StockListGenerator : MonoBehaviour
         StartCoroutine(GenerateStockFields());
     }
 
+    protected virtual void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
 
     public virtual IEnumerator GenerateStockFields()
     {
-        ClearFields();
+        yield return new WaitForEndOfFrame(); //wait for deserialzation
 
-        yield return new WaitUntil(() => stockHolder.HasGeneratedStocks);
-
-        yield return new WaitForEndOfFrame();
+        UIUtils.ClearContent(transform);
 
         //Meant to be overriden
     }
 
-
-    public void ClearFields()
-    {
-        UIUtils.ClearContent(transform);
-    }
-
-    protected virtual void GenerateField(Stock stock)
+    protected virtual IEnumerator GenerateField(string stockSymbol)
     {
         GameObject go = Instantiate(stockFieldPrefab, transform);
 
         StockField field = go.GetComponent<StockField>();
 
-        field.Stock = stock;
         field.WindowManager = windowManager;
 
-        field.Label.SetText(stock.Symbol);
+        field.Label.SetText(stockSymbol);
+        field.Value.SetText("Loading...");
+
+        stockHolder.GenerateStockInfo(stockSymbol);
+
+        field.button.interactable = false;
+
+        yield return new WaitUntil(() => stockHolder.IsStockLoaded(stockSymbol));
+
+        Stock stock = stockHolder.GetStockByStockSymbol(stockSymbol);
+
+        field.Stock = stock;
+
         field.Value.SetText(((float)stock.CurrentValue).ToString());
+
+        field.button.interactable = true;
     }
 }

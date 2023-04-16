@@ -12,13 +12,8 @@ public class StockField : MonoBehaviour
     [HideInInspector] public WindowManager WindowManager;
     [HideInInspector] public Stock Stock;
 
-    private Button button;
+    public Button button;
 
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();   
-    }
 
     private void OnEnable()
     {

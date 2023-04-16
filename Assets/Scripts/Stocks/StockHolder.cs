@@ -9,35 +9,33 @@ public class StockHolder : MonoBehaviour
     [SerializeField] private StockGenerator stockGenerator;
     [ReadOnly] public StockListHolder StockListHolder;
 
-    public List<string> AllAvailableStockSymbols = new List<string>();
+    public List<string> AllAvailableStockSymbols = new();
 
-    [HideInInspector] public bool HasGeneratedStocks = false;
+    private Dictionary<string, bool> stockSymbolLoaded = new();
 
-    private Timer loadTimer = new Timer();
+    [HideInInspector] public bool HasGeneratedAllStocks = false;
+
     [SerializeField] private float maxLoadTime = 5.0f;
 
 
-    private void Start()
+    private void Awake()
     {
         StockListHolder.TryDeserialize();
-
-        StartCoroutine(FillStockInfo());
     }
 
 
-    private IEnumerator FillStockInfo()
+    public void GenerateStockInfo(string stockSymbol)
     {
-        loadTimer.StartTimer();
+        StartCoroutine(FillStockInfo(stockSymbol));
+    }
 
-        for (int i = 0; i < AllAvailableStockSymbols.Count; i++)
+    private IEnumerator FillStockInfo(string stockSymbol)
+    {
+        while(!IsStockLoaded(stockSymbol))
         {
-            string stockSymbol = AllAvailableStockSymbols[i];
-
-            if(StockListHolder.TryGetSavedStock(stockSymbol, out Stock stock)) //if stock with this symbol is in SO
+            if (StockListHolder.TryGetSavedStock(stockSymbol, out Stock stock)) //if stock with this symbol is in SO
             {
                 TimeSpan generationTimeDiff = DateTime.Now.Subtract(DateTime.FromBinary(stock.GenerateTime));
-
-                Debug.Log(generationTimeDiff.TotalMinutes);
 
                 //Generate new data into stock if current data in SO is older than api refresh time
                 if (AlphaVantageTimer.IsApiCallAllowed && generationTimeDiff.TotalMinutes > 15.0f) //15min
@@ -67,11 +65,14 @@ public class StockHolder : MonoBehaviour
                         //Save stock with new data for serialization
                         StockListHolder.AllSavedStocks[StockListHolder.AllSavedStocks.FindIndex(x => x.Symbol == stock.Symbol)] = new(stock);
 
+                        stockSymbolLoaded[stockSymbol] = true;
 
                         Debug.Log($"{stockSymbol} - Genereted new data. Trying to add into SavedStocks, new entries: {newEntryCount}");
                     }
                     catch
                     {
+                        stockSymbolLoaded[stockSymbol] = true;
+
                         Debug.Log($"{stockSymbol} - Can't get new stock data, api call error, Loaded old data from SavedStocks");
                     }
                 }
@@ -79,6 +80,8 @@ public class StockHolder : MonoBehaviour
                 //Get stock data from SO
                 else
                 {
+                    stockSymbolLoaded[stockSymbol] = true;
+
                     Debug.Log($"{stockSymbol} - Loaded from SavedStocks");
                 }
             }
@@ -95,11 +98,15 @@ public class StockHolder : MonoBehaviour
 
                         StockListHolder.AllSavedStocks.Add(outputStock);
 
+                        stockSymbolLoaded[stockSymbol] = true;
+
                         Debug.Log($"{stockSymbol} - Generated data, created new entry in SavedStocks");
                     }
                     //Error used out api resources
                     catch
                     {
+                        stockSymbolLoaded[stockSymbol] = false;
+
                         Debug.Log($"{stockSymbol} - Can't get stock data, api call error");
                     }
                 }
@@ -107,15 +114,28 @@ public class StockHolder : MonoBehaviour
                 //Over API call limit
                 else
                 {
+                    stockSymbolLoaded[stockSymbol] = false;
+
                     Debug.LogError($"{stockSymbol} - Can't get stock data, api call not allowed");
                 }
             }
+
+
+            if(!IsStockLoaded(stockSymbol))
+                yield return new WaitForSeconds(maxLoadTime);
         }
 
-        yield return new WaitUntil(() => StockListHolder.AllSavedStocks[^1].Values.Count > 0 || loadTimer.GetTime() > maxLoadTime); //Wait for stock load
-
         StockListHolder.Serialize();
+    }
 
-        HasGeneratedStocks = true;
+
+    public bool IsStockLoaded(string stockSymbol)
+    {
+        return stockSymbolLoaded.ContainsKey(stockSymbol) && stockSymbolLoaded[stockSymbol];
+    }
+
+    public Stock GetStockByStockSymbol(string stockSymbol)
+    {
+        return StockListHolder.AllSavedStocks[StockListHolder.AllSavedStocks.FindIndex(x => x.Symbol == stockSymbol)];
     }
 }
