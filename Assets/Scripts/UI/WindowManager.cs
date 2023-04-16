@@ -23,6 +23,12 @@ public class WindowManager : MonoBehaviour
     }
 
 
+    private void Start()
+    {
+        ShowAllStocks(); //Default window
+    }
+
+
     public void HideAllPanels()
     {
         stockViewer.gameObject.SetActive(false);

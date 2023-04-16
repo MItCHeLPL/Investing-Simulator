@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI.Extensions;
-using UnityEngine.Events;
 
 public class GraphController : MonoBehaviour
 {
@@ -69,8 +64,8 @@ public class GraphController : MonoBehaviour
 		int last = graphUILineRenderer.Points.Length - 1;
 		int mid = 0;
 
-		// Do 3 binary search splits to narrow down area to look for closest index
-		for (int i=0; i < 3; i++)
+		// Do 10 binary search splits to narrow down area to look for closest index
+		for (int i=0; i < 10; i++)
 		{
 			mid = first + (last - first) / 2;
 

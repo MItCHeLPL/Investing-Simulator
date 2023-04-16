@@ -45,6 +45,8 @@ public class StockHolder : MonoBehaviour
                 //Generate new data into stock if current data in SO is older than api refresh time
                 if (AlphaVantageTimer.IsApiCallAllowed && generationTimeDiff.TotalMinutes > 15.0f) //15min
                 {
+                    int newEntryCount = 0;
+
                     Stock newData = stockGenerator.GenerateAlphaVantageStock(AllStockSymbols[i]);
 
                     long oldDataLastTimestamp = stock.Values[^1].TimestampBinary; //save last timestamp from old data
@@ -59,13 +61,14 @@ public class StockHolder : MonoBehaviour
                         if (dataTimeDiff.Ticks < 0)
                         {
                             stock.Values.Add(newData.Values[j]);
+                            newEntryCount++;
                         }
                     }
 
                     outputStock = stock;
 
 
-                    Debug.Log($"{outputStock.Symbol} - Genereted new data into SavedStocks");
+                    Debug.Log($"{outputStock.Symbol} - Genereted new data into SavedStocks. New entries: {newEntryCount}");
                 }
 
                 //Get stock data from SO
