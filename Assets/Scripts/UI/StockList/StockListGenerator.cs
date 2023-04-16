@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StockListGenerator : MonoBehaviour
@@ -39,7 +40,7 @@ public class StockListGenerator : MonoBehaviour
         field.Label.SetText(stockSymbol);
         field.Value.SetText("Loading...");
 
-        stockHolder.GenerateStockInfo(stockSymbol);
+        StartCoroutine(stockHolder.FillStockInfo(stockSymbol));
 
         field.button.interactable = false;
 

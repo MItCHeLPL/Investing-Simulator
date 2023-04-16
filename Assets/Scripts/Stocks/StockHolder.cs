@@ -15,8 +15,7 @@ public class StockHolder : MonoBehaviour
 
     [HideInInspector] public bool HasGeneratedAllStocks = false;
 
-    [SerializeField] private float maxLoadTime = 5.0f;
-
+    [SerializeField] private float maxLoadTime = 10.0f;
 
 
     [Flags]
@@ -37,12 +36,7 @@ public class StockHolder : MonoBehaviour
     }
 
 
-    public void GenerateStockInfo(string stockSymbol)
-    {
-        StartCoroutine(FillStockInfo(stockSymbol));
-    }
-
-    private IEnumerator FillStockInfo(string stockSymbol)
+    public IEnumerator FillStockInfo(string stockSymbol)
     {
         while(ShouldStockReload(stockSymbol))
         {

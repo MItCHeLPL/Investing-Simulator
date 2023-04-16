@@ -3237,7 +3237,7 @@ MonoBehaviour:
   - AMZN
   - WMT
   HasGeneratedAllStocks: 0
-  maxLoadTime: 5
+  maxLoadTime: 10
 --- !u!1 &1164239112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6170753359807559875, guid: dd9de0325e802904faf06bf65b0d4417, type: 3}
