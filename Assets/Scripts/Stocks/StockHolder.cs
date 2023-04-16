@@ -11,11 +11,24 @@ public class StockHolder : MonoBehaviour
 
     public List<string> AllAvailableStockSymbols = new();
 
-    private Dictionary<string, bool> stockSymbolLoaded = new();
+    private Dictionary<string, LoadStatus> stockSymbolLoaded = new();
 
     [HideInInspector] public bool HasGeneratedAllStocks = false;
 
     [SerializeField] private float maxLoadTime = 5.0f;
+
+
+
+    [Flags]
+    public enum LoadStatus
+    {
+        LoadedOldData = 1,
+        CreatedNewData = 2,
+        AddedNewData = 4,
+
+        APICallOnCooldown = 8,
+        APICallOnCooldownLoadedOldData = APICallOnCooldown | LoadedOldData,
+    }
 
 
     private void Awake()
@@ -31,14 +44,14 @@ public class StockHolder : MonoBehaviour
 
     private IEnumerator FillStockInfo(string stockSymbol)
     {
-        while(!IsStockLoaded(stockSymbol))
+        while(ShouldStockReload(stockSymbol))
         {
             if (StockListHolder.TryGetSavedStock(stockSymbol, out Stock stock)) //if stock with this symbol is in SO
             {
                 TimeSpan generationTimeDiff = DateTime.Now.Subtract(DateTime.FromBinary(stock.GenerateTime));
 
                 //Generate new data into stock if current data in SO is older than api refresh time
-                if (AlphaVantageTimer.IsApiCallAllowed && generationTimeDiff.TotalMinutes > 15.0f) //15min
+                if (generationTimeDiff.TotalMinutes > 15.0f) //15min
                 {
                     try
                     {
@@ -65,13 +78,13 @@ public class StockHolder : MonoBehaviour
                         //Save stock with new data for serialization
                         StockListHolder.AllSavedStocks[StockListHolder.AllSavedStocks.FindIndex(x => x.Symbol == stock.Symbol)] = new(stock);
 
-                        stockSymbolLoaded[stockSymbol] = true;
+                        stockSymbolLoaded[stockSymbol] = LoadStatus.AddedNewData;
 
                         Debug.Log($"{stockSymbol} - Genereted new data. Trying to add into SavedStocks, new entries: {newEntryCount}");
                     }
                     catch
                     {
-                        stockSymbolLoaded[stockSymbol] = true;
+                        stockSymbolLoaded[stockSymbol] = LoadStatus.APICallOnCooldownLoadedOldData;
 
                         Debug.Log($"{stockSymbol} - Can't get new stock data, api call error, Loaded old data from SavedStocks");
                     }
@@ -80,7 +93,7 @@ public class StockHolder : MonoBehaviour
                 //Get stock data from SO
                 else
                 {
-                    stockSymbolLoaded[stockSymbol] = true;
+                    stockSymbolLoaded[stockSymbol] = LoadStatus.LoadedOldData;
 
                     Debug.Log($"{stockSymbol} - Loaded from SavedStocks");
                 }
@@ -98,14 +111,14 @@ public class StockHolder : MonoBehaviour
 
                         StockListHolder.AllSavedStocks.Add(outputStock);
 
-                        stockSymbolLoaded[stockSymbol] = true;
+                        stockSymbolLoaded[stockSymbol] = LoadStatus.AddedNewData;
 
                         Debug.Log($"{stockSymbol} - Generated data, created new entry in SavedStocks");
                     }
                     //Error used out api resources
                     catch
                     {
-                        stockSymbolLoaded[stockSymbol] = false;
+                        stockSymbolLoaded[stockSymbol] = LoadStatus.APICallOnCooldown;
 
                         Debug.Log($"{stockSymbol} - Can't get stock data, api call error");
                     }
@@ -114,14 +127,14 @@ public class StockHolder : MonoBehaviour
                 //Over API call limit
                 else
                 {
-                    stockSymbolLoaded[stockSymbol] = false;
+                    stockSymbolLoaded[stockSymbol] = LoadStatus.APICallOnCooldown;
 
                     Debug.LogError($"{stockSymbol} - Can't get stock data, api call not allowed");
                 }
             }
 
 
-            if(!IsStockLoaded(stockSymbol))
+            if(ShouldStockReload(stockSymbol))
                 yield return new WaitForSeconds(maxLoadTime);
         }
 
@@ -131,8 +144,20 @@ public class StockHolder : MonoBehaviour
 
     public bool IsStockLoaded(string stockSymbol)
     {
-        return stockSymbolLoaded.ContainsKey(stockSymbol) && stockSymbolLoaded[stockSymbol];
+        return stockSymbolLoaded.ContainsKey(stockSymbol) && (
+            stockSymbolLoaded[stockSymbol] == LoadStatus.LoadedOldData ||
+            stockSymbolLoaded[stockSymbol] == LoadStatus.CreatedNewData ||
+            stockSymbolLoaded[stockSymbol] == LoadStatus.AddedNewData ||
+            stockSymbolLoaded[stockSymbol] == LoadStatus.APICallOnCooldownLoadedOldData
+        );
     }
+    public bool ShouldStockReload(string stockSymbol)
+    {
+        return !stockSymbolLoaded.ContainsKey(stockSymbol) ||
+            stockSymbolLoaded[stockSymbol] == LoadStatus.APICallOnCooldown ||
+            stockSymbolLoaded[stockSymbol] == LoadStatus.APICallOnCooldownLoadedOldData;     
+    }
+
 
     public Stock GetStockByStockSymbol(string stockSymbol)
     {
