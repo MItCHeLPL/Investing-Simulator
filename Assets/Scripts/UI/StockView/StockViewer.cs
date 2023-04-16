@@ -65,11 +65,11 @@ public class StockViewer : MonoBehaviour
 	{
 		Stock stock;
 
-		int id = stockHolder.AllStockSymbols.FindIndex(x => x == symbol);
+		int id = stockHolder.AllAvailableStockSymbols.FindIndex(x => x == symbol);
 
         if (id != -1)
 		{
-			stock = stockHolder.AllStocks[id];
+			stock = stockHolder.StockListHolder.AllSavedStocks[id];
         }
 		else
 		{

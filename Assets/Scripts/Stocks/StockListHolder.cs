@@ -5,10 +5,11 @@ using UnityEngine;
 public struct StockListHolder
 {
     public List<Stock> AllSavedStocks;
+    public List<string> OwnedStockSymbols; //Improve to struct with stock, bought volume, price etc.
 
 
     //Get Stock from list if symbol exists
-    public bool TryGetStock(string symbol, out Stock stock)
+    public bool TryGetSavedStock(string symbol, out Stock stock)
     {
         stock = null;
 
@@ -37,18 +38,11 @@ public struct StockListHolder
 
     public void Serialize()
     {
-        //PlayerPrefsJSONSerializer.Save<StockListHolder>("AllSavedStocks", this);
         SystemIOJSONSerializer.Save<StockListHolder>("AllSavedStocks.json", this);
     }
 
     public bool TryDeserialize()
     {
-        /*if (PlayerPrefsJSONSerializer.FileExists("AllSavedStocks"))
-        {
-            this = PlayerPrefsJSONSerializer.Load<StockListHolder>("AllSavedStocks");
-            return true;
-        }*/
-
         string path = SystemIOJSONSerializer.PathForFilename("AllSavedStocks.json");
 
         if (SystemIOJSONSerializer.FileExists(path))

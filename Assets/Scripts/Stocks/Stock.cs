@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 [Serializable]
@@ -43,7 +42,7 @@ public class Stock
 
         Values = new(stock.Values);
 
-        GenerateTime = stock.GenerateTime;
+        GenerateTime = DateTime.Now.ToBinary();
     }
 
 
