@@ -40,14 +40,29 @@ public class StockHolder : MonoBehaviour
 
             if(stockListHolder.TryGetStock(AllStockSymbols[i], out Stock stock)) //if stock with this symbol is in SO
             {
-                TimeSpan timeDiff = DateTime.Now.Subtract(DateTime.FromBinary(stock.GenerateTime));
+                TimeSpan generationTimeDiff = DateTime.Now.Subtract(DateTime.FromBinary(stock.GenerateTime));
 
                 //Generate new data into stock if current data in SO is older than api refresh time
-                if (AlphaVantageTimer.IsApiCallAllowed && timeDiff.TotalMinutes > 15.0f) //15min
+                if (AlphaVantageTimer.IsApiCallAllowed && generationTimeDiff.TotalMinutes > 15.0f) //15min
                 {
-                    outputStock = stockGenerator.GenerateAlphaVantageStock(AllStockSymbols[i]);
+                    Stock newData = stockGenerator.GenerateAlphaVantageStock(AllStockSymbols[i]);
 
-                    stockListHolder.AllSavedStocks[stockListHolder.AllSavedStocks.FindIndex(x => x == stock)] = outputStock;
+                    long oldDataLastTimestamp = stock.Values[^1].TimestampBinary; //save last timestamp from old data
+
+                    for (int j = 0; j < newData.Values.Count; j++)
+                    {
+                        long newDataTimestamp = newData.Values[j].TimestampBinary; //timestamp from new data
+
+                        //if new data is newer than old data, add it to the old data and save
+                        TimeSpan dataTimeDiff = DateTime.FromBinary(newDataTimestamp).Subtract(DateTime.FromBinary(oldDataLastTimestamp)); 
+
+                        if (dataTimeDiff.Ticks < 0)
+                        {
+                            stock.Values.Add(newData.Values[j]);
+                        }
+                    }
+
+                    outputStock = stock;
 
 
                     Debug.Log($"{outputStock.Symbol} - Genereted new data into SavedStocks");

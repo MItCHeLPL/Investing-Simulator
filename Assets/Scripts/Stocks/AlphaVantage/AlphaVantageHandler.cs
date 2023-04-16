@@ -58,7 +58,7 @@ public static class AlphaVantageHandler
     private static string GetStockCSV(string function, string symbol, string interval, string apiKey)
     {
         //https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo
-        string url = $"https://www.alphavantage.co/query?function={function}&symbol={symbol}&interval={interval}&apikey={apiKey}&datatype=csv";
+        string url = $"https://www.alphavantage.co/query?function={function}&symbol={symbol}&interval={interval}&adjusted=false&outputsize=full&apikey={apiKey}&datatype=csv";
 
         Uri queryUri = new Uri(url);
 
