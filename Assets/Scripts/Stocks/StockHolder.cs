@@ -67,6 +67,8 @@ public class StockHolder : MonoBehaviour
 
                     outputStock = stock;
 
+                    stockListHolder.AllSavedStocks[stockListHolder.AllSavedStocks.FindIndex(x => x.Symbol == stock.Symbol)] = outputStock;
+
 
                     Debug.Log($"{outputStock.Symbol} - Genereted new data into SavedStocks. New entries: {newEntryCount}");
                 }
