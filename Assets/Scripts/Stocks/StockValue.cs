@@ -1,9 +1,11 @@
-﻿using System;
+﻿using NaughtyAttributes;
+using System;
 
 [Serializable]
 public struct StockValue
 {
-	public DateTime Timestamp => DateTime.FromBinary(TimestampBinary);
+    [ShowNativeProperty]
+    public DateTime Timestamp => DateTime.FromBinary(TimestampBinary);
     public long TimestampBinary;
     public double Open;
 	public double High;

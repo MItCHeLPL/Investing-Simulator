@@ -6,7 +6,7 @@ public class AlphaVantageTimer : MonoBehaviour
 {
     private static Queue<float> apiCallTimes = new Queue<float>();
 
-    public static bool IsApiCallAllowed => apiCallTimes.Count < 5; //Allow 5 api calls per minute
+    public static bool IsApiCallAllowed => apiCallTimes.Count < 50; //Allow 50 api calls per minute
 
     public static void UseOutApiCall() => apiCallTimes.Enqueue(Time.time);
 

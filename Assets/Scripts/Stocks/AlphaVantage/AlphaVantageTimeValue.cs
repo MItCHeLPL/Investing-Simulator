@@ -1,7 +1,9 @@
-﻿using System;
+﻿using NaughtyAttributes;
+using System;
 
 public class AlphaVantageTimeValue
 {
+    [ShowNativeProperty]
     public DateTime Timestamp { get; set; }
 	public double Open { get; set; }
 	public double High { get; set; }

@@ -47,41 +47,7 @@ public class StockHolder : MonoBehaviour
                 //Generate new data into stock if current data in SO is older than api refresh time
                 if (generationTimeDiff.TotalMinutes > 15.0f) //15min
                 {
-                    try
-                    {
-                        Stock newData = stockGenerator.GenerateAlphaVantageStock(stockSymbol);
-
-                        int newEntryCount = 0;
-
-                        DateTime oldDataLastTimestamp = DateTime.FromBinary(stock.Values[^1].TimestampBinary); //save last timestamp from old data
-
-                        for (int j = 0; j < newData.Values.Count; j++)
-                        {
-                            DateTime newDataTimestamp = DateTime.FromBinary(newData.Values[j].TimestampBinary); //timestamp from new data
-
-                            //if new data is newer than old data, add it to the old data and save
-                            TimeSpan dataTimeDiff = newDataTimestamp.Subtract(oldDataLastTimestamp);
-
-                            if (dataTimeDiff.Ticks < 0) //new data is newer than last in old data
-                            {
-                                stock.Values.Add(newData.Values[j]);
-                                newEntryCount++;
-                            }
-                        }
-
-                        //Save stock with new data for serialization
-                        StockListHolder.AllSavedStocks[StockListHolder.AllSavedStocks.FindIndex(x => x.Symbol == stock.Symbol)] = new(stock);
-
-                        stockSymbolLoaded[stockSymbol] = LoadStatus.AddedNewData;
-
-                        Debug.Log($"{stockSymbol} - Genereted new data. Trying to add into SavedStocks, new entries: {newEntryCount}");
-                    }
-                    catch
-                    {
-                        stockSymbolLoaded[stockSymbol] = LoadStatus.APICallOnCooldownLoadedOldData;
-
-                        Debug.Log($"{stockSymbol} - Can't get new stock data, api call error, Loaded old data from SavedStocks");
-                    }
+                    FillNewData(stock);
                 }
 
                 //Get stock data from SO
@@ -135,6 +101,44 @@ public class StockHolder : MonoBehaviour
         StockListHolder.Serialize();
     }
 
+    private void FillNewData(Stock stock)
+    {
+        try
+        {
+            Stock newData = stockGenerator.GenerateAlphaVantageStock(stock.Symbol);
+
+            int newEntryCount = 0;
+
+            DateTime oldDataLastTimestamp = DateTime.FromBinary(stock.Values[0].TimestampBinary); //save last timestamp from old data
+
+            for (int j = newData.Values.Count - 1; j >= 0; j--)
+            {
+                DateTime newDataTimestamp = DateTime.FromBinary(newData.Values[j].TimestampBinary); //timestamp from new data
+
+                //if new data is newer than old data, add it to the old data and save
+                TimeSpan dataTimeDiff = newDataTimestamp.Subtract(oldDataLastTimestamp);
+
+                if (dataTimeDiff.Ticks > 0) //new data is newer than last in old data
+                {
+                    stock.Values.Insert(0, newData.Values[j]); //insert new data at the start of list
+                    newEntryCount++;
+                }
+            }
+
+            //Save stock with new data for serialization
+            StockListHolder.AllSavedStocks[StockListHolder.AllSavedStocks.FindIndex(x => x.Symbol == stock.Symbol)] = new(stock);
+
+            stockSymbolLoaded[stock.Symbol] = LoadStatus.AddedNewData;
+
+            Debug.Log($"{stock.Symbol} - Genereted new data. Trying to add into SavedStocks, new entries: {newEntryCount}");
+        }
+        catch
+        {
+            stockSymbolLoaded[stock.Symbol] = LoadStatus.APICallOnCooldownLoadedOldData;
+
+            Debug.Log($"{stock.Symbol} - Can't get new stock data, api call error, Loaded old data from SavedStocks");
+        }
+    }
 
     public bool IsStockLoaded(string stockSymbol)
     {
