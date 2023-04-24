@@ -32,7 +32,7 @@ public struct SavedStocksHolder
     [ContextMenu("Clear")]
     public void Clear()
     {
-        AllSavedStocks.Clear();
+        AllSavedStocks = new();
     }
 
 
@@ -52,7 +52,7 @@ public struct SavedStocksHolder
         }
         else
         {
-            AllSavedStocks = new();
+            Clear();
         }
 
         return false;

@@ -32,8 +32,15 @@ public struct OwnedStocksHolder
     [ContextMenu("Clear")]
     public void Clear()
     {
-        OwnedStocks.Clear();
+        OwnedStocks = new();
         OwnedMoney = 0;
+    }
+
+    [ContextMenu("SetStartValues")]
+    public void SetStartValues()
+    {
+        OwnedStocks = new();
+        OwnedMoney = 5000.0d;
     }
 
 
@@ -53,8 +60,7 @@ public struct OwnedStocksHolder
         }
         else
         {
-            OwnedStocks = new();
-            OwnedMoney = 0;
+            SetStartValues();
         }
 
         return false;
