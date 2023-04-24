@@ -1,11 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public struct StockListHolder
+public struct SavedStocksHolder
 {
     public List<Stock> AllSavedStocks;
-    public List<string> OwnedStockSymbols; //Improve to struct with stock, bought volume, price etc.
 
 
     //Get Stock from list if symbol exists
@@ -38,7 +38,7 @@ public struct StockListHolder
 
     public void Serialize()
     {
-        SystemIOJSONSerializer.Save<StockListHolder>("AllSavedStocks.json", this);
+        SystemIOJSONSerializer.Save<SavedStocksHolder>("AllSavedStocks.json", this);
     }
 
     public bool TryDeserialize()
@@ -47,7 +47,7 @@ public struct StockListHolder
 
         if (SystemIOJSONSerializer.FileExists(path))
         {
-            this = SystemIOJSONSerializer.Load<StockListHolder>("AllSavedStocks.json");
+            this = SystemIOJSONSerializer.Load<SavedStocksHolder>("AllSavedStocks.json");
             return true;
         }
         else

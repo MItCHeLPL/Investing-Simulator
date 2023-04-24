@@ -69,7 +69,7 @@ public class StockViewer : MonoBehaviour
 
         if (id != -1)
 		{
-			stock = stockHolder.StockListHolder.AllSavedStocks[id];
+			stock = stockHolder.SavedStocksHolder.AllSavedStocks[id];
         }
 		else
 		{

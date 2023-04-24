@@ -7,9 +7,9 @@ public class OwnedStockListGenerator : StockListGenerator
     {
         yield return base.GenerateStockFields();
 
-        foreach (string symbol in stockHolder.StockListHolder.OwnedStockSymbols)
+        foreach (OwnedStock ownedStock in stockHolder.OwnedStocksHolder.OwnedStocks)
         {
-            StartCoroutine(GenerateField(symbol));
+            StartCoroutine(GenerateField(ownedStock.Symbol));
         }
     }
 }

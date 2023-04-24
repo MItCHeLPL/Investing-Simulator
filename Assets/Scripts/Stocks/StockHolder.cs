@@ -7,7 +7,8 @@ using NaughtyAttributes;
 public class StockHolder : MonoBehaviour
 {
     [SerializeField] private StockGenerator stockGenerator;
-    [ReadOnly] public StockListHolder StockListHolder;
+    [ReadOnly] public SavedStocksHolder SavedStocksHolder;
+    [ReadOnly] public OwnedStocksHolder OwnedStocksHolder;
 
     public List<string> AllAvailableStockSymbols = new();
 
@@ -32,7 +33,8 @@ public class StockHolder : MonoBehaviour
 
     private void Awake()
     {
-        StockListHolder.TryDeserialize();
+        SavedStocksHolder.TryDeserialize();
+        OwnedStocksHolder.TryDeserialize();
     }
 
 
@@ -40,7 +42,7 @@ public class StockHolder : MonoBehaviour
     {
         while(ShouldStockReload(stockSymbol))
         {
-            if (StockListHolder.TryGetSavedStock(stockSymbol, out Stock stock)) //if stock with this symbol is in SO
+            if (SavedStocksHolder.TryGetSavedStock(stockSymbol, out Stock stock)) //if stock with this symbol is in SO
             {
                 TimeSpan generationTimeDiff = DateTime.Now.Subtract(DateTime.FromBinary(stock.GenerateTime));
 
@@ -69,7 +71,7 @@ public class StockHolder : MonoBehaviour
                     {
                         Stock outputStock = stockGenerator.GenerateAlphaVantageStock(stockSymbol);
 
-                        StockListHolder.AllSavedStocks.Add(outputStock);
+                        SavedStocksHolder.AllSavedStocks.Add(outputStock);
 
                         stockSymbolLoaded[stockSymbol] = LoadStatus.AddedNewData;
 
@@ -98,7 +100,7 @@ public class StockHolder : MonoBehaviour
                 yield return new WaitForSeconds(maxLoadTime);
         }
 
-        StockListHolder.Serialize();
+        SavedStocksHolder.Serialize();
     }
 
     private void FillNewData(Stock stock)
@@ -126,7 +128,7 @@ public class StockHolder : MonoBehaviour
             }
 
             //Save stock with new data for serialization
-            StockListHolder.AllSavedStocks[StockListHolder.AllSavedStocks.FindIndex(x => x.Symbol == stock.Symbol)] = new(stock);
+            SavedStocksHolder.AllSavedStocks[SavedStocksHolder.AllSavedStocks.FindIndex(x => x.Symbol == stock.Symbol)] = new(stock);
 
             stockSymbolLoaded[stock.Symbol] = LoadStatus.AddedNewData;
 
@@ -159,6 +161,6 @@ public class StockHolder : MonoBehaviour
 
     public Stock GetStockByStockSymbol(string stockSymbol)
     {
-        return StockListHolder.AllSavedStocks[StockListHolder.AllSavedStocks.FindIndex(x => x.Symbol == stockSymbol)];
+        return SavedStocksHolder.AllSavedStocks[SavedStocksHolder.AllSavedStocks.FindIndex(x => x.Symbol == stockSymbol)];
     }
 }
