@@ -50,7 +50,7 @@ public class StockListGenerator : MonoBehaviour
 
         field.Stock = stock;
 
-        field.Value.SetText(((float)stock.CurrentValue).ToString());
+        field.Value.SetText($"${System.String.Format("{0:0.00}", stock.CurrentValue)}");
 
         field.button.interactable = true;
     }

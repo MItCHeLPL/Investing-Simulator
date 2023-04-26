@@ -140,7 +140,7 @@ public class GraphController : MonoBehaviour
 				{
 					indicatorLabelRect.localPosition = new Vector2(graphUILineRenderer.Points[pointIndex].x + labelOffset.x, indicatorLabelRect.localPosition.y + labelOffset.y);
 
-					indicatorLabelText.SetText($"{StockViewer.CurrentStock.Values[pointIndex].Close}\n{StockViewer.CurrentStock.Values[pointIndex].Timestamp}");
+					indicatorLabelText.SetText($"${System.String.Format("{0:0.00}", StockViewer.CurrentStock.Values[pointIndex].Close)}\n{StockViewer.CurrentStock.Values[pointIndex].Timestamp}");
 				}
 			}
 			else

@@ -11,38 +11,12 @@ public class TransactionsController : MonoBehaviour
 
     [ContextMenu(itemName: "Add500")]
     public void Add500() => AddMoney(500.0d);
-    public void AddMoney(double amount)
-    {
-        stockHolder.OwnedStocksHolder.OwnedMoney += amount;
-
-        stockHolder.OwnedStocksHolder.Serialize();
-    }
-
     [ContextMenu("Sub500")]
     public void Sub500() => SubtractMoney(500.0d);
-    public void SubtractMoney(double amount)
-    {
-        if(stockHolder.OwnedStocksHolder.OwnedMoney - amount >= 0)
-        {
-            stockHolder.OwnedStocksHolder.OwnedMoney -= amount;
-        }
-        else
-        {
-            stockHolder.OwnedStocksHolder.OwnedMoney = 0;
-        }
 
-        stockHolder.OwnedStocksHolder.Serialize();
-    }
-
-    public void SetMoney(double amount)
-    {
-        if(amount >= 0)
-        {
-            stockHolder.OwnedStocksHolder.OwnedMoney = amount;
-
-            stockHolder.OwnedStocksHolder.Serialize();
-        }
-    }
+    public void AddMoney(double amount) => stockHolder.OwnedStocksHolder.AddMoney(amount);
+    public void SubtractMoney(double amount) => stockHolder.OwnedStocksHolder.SubtractMoney(amount);
+    public void SetMoney(double amount) => stockHolder.OwnedStocksHolder.SetMoney(amount);
 
 
     public double GetWorthFromOwnedStocks()

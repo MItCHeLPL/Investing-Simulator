@@ -94,7 +94,7 @@ public class StockViewer : MonoBehaviour
 		if (currentValueText != null)
 		{
 			//UIUtils.ReplaceText(currentValueText, "{StockCurrentValue}", $"{stock.CurrentValue.ToString()}");
-			currentValueText.SetText(stock.CurrentValue.ToString());
+			currentValueText.SetText($"${System.String.Format("{0:0.00}", stock.CurrentValue)}");
 		}
 
 		OnShow.Invoke();

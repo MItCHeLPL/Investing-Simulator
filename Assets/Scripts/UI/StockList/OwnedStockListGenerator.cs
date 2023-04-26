@@ -10,6 +10,9 @@ public class OwnedStockListGenerator : StockListGenerator
         foreach (OwnedStock ownedStock in stockHolder.OwnedStocksHolder.OwnedStocks)
         {
             StartCoroutine(GenerateField(ownedStock.Symbol));
+
+
+            //TODO Modify to include amount of owned stock
         }
     }
 }

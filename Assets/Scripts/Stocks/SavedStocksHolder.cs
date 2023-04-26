@@ -33,6 +33,8 @@ public struct SavedStocksHolder
     public void Clear()
     {
         AllSavedStocks = new();
+
+        Serialize();
     }
 
 

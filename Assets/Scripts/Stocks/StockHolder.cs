@@ -6,9 +6,11 @@ using NaughtyAttributes;
 
 public class StockHolder : MonoBehaviour
 {
+    private const double startMoney = 5000.0d;
+
     [SerializeField] private StockGenerator stockGenerator;
-    [ReadOnly] public SavedStocksHolder SavedStocksHolder;
-    [ReadOnly] public OwnedStocksHolder OwnedStocksHolder;
+    [ReadOnly] public SavedStocksHolder SavedStocksHolder = new();
+    [ReadOnly] public OwnedStocksHolder OwnedStocksHolder = new(startMoney);
 
     public List<string> AllAvailableStockSymbols = new();
 
@@ -162,5 +164,11 @@ public class StockHolder : MonoBehaviour
     public Stock GetStockByStockSymbol(string stockSymbol)
     {
         return SavedStocksHolder.AllSavedStocks[SavedStocksHolder.AllSavedStocks.FindIndex(x => x.Symbol == stockSymbol)];
+    }
+
+
+    public void ResetData()
+    {
+        OwnedStocksHolder.SetStartValues();
     }
 }
