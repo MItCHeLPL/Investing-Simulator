@@ -20,6 +20,8 @@ public class StockTransactionButtons : MonoBehaviour
         sellButton.onClick.AddListener(SellCurrentStockShares);
 
         amountStepper.onValueChanged.AddListener(SetAmountText);
+
+        RefreshStepper();
     }
 
     private void OnDisable()
@@ -45,5 +47,11 @@ public class StockTransactionButtons : MonoBehaviour
     public void SellCurrentStockShares()
     {
         transactionsController.SellShares(StockViewer.CurrentStock.Symbol, StockViewer.CurrentStock.Values[^1], amountStepper.value);
+    }
+
+    public void RefreshStepper()
+    {
+        amountStepper.value = 1;
+        SetAmountText(1);
     }
 }

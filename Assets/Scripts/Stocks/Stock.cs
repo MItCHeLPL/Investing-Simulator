@@ -10,7 +10,7 @@ public class Stock
 
 	public long GenerateTime;
 
-	public double CurrentValue => Values.Count > 0 ? Values[^1].Close : -1;
+	public double CurrentValue => Values.Count > 0 ? Values[0].Close : -1;
 	public double HighestCloseValue => GetHighestCloseValue().Close;
 	public double LowestCloseValue => GetLowestCloseValue().Close;
 

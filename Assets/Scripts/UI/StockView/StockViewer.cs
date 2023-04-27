@@ -45,7 +45,8 @@ public class StockViewer : MonoBehaviour
 			_refreshingViewerCoroutine = StartCoroutine(RefreshingViewer());
 			_isRefreshingViewerCoroutineRunning = true;
 		}
-	}
+
+    }
 	private void OnDisable()
 	{
 		if (_isRefreshingViewerCoroutineRunning)

@@ -45,7 +45,10 @@ public class TransactionsController : MonoBehaviour
         {
             if (OwnedMoney >= stockValue.Close * amount)
             {
-                ownedStock.AddShare(stockValue);
+                for(int i=0; i< amount; i++)
+                {
+                    ownedStock.AddShare(stockValue);
+                }
 
                 SubtractMoney(stockValue.Close * amount);
 
@@ -65,7 +68,10 @@ public class TransactionsController : MonoBehaviour
             {
                 OwnedStock newOwnedStock = new(stockSymbol);
 
-                newOwnedStock.AddShare(stockValue);
+                for (int i = 0; i < amount; i++)
+                {
+                    newOwnedStock.AddShare(stockValue);
+                }
 
                 SubtractMoney(stockValue.Close * amount);
 
@@ -89,7 +95,10 @@ public class TransactionsController : MonoBehaviour
         {
             if (ownedStock.Shares.Count >= amount)
             {
-                ownedStock.RemoveShare(0);
+                for (int i = 0; i < amount; i++)
+                {
+                    ownedStock.RemoveShare(0);
+                }
 
                 AddMoney(stockValue.Close * amount);
 

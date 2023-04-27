@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class AllStockListGenerator : StockListGenerator
@@ -7,7 +8,7 @@ public class AllStockListGenerator : StockListGenerator
     {
         yield return base.GenerateStockFields();
 
-        foreach (string symbol in stockHolder.AllAvailableStockSymbols)
+        foreach (string symbol in stockHolder.AllAvailableStockSymbols.OrderBy(x => x))
         {
             StartCoroutine(GenerateField(symbol));
         }

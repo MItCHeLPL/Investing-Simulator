@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class StockField : MonoBehaviour
 {
     public TextMeshProUGUI Label;
+    public TextMeshProUGUI Amount;
     public TextMeshProUGUI Value;
 
     [HideInInspector] public WindowManager WindowManager;

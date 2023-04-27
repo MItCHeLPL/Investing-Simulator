@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StockListGenerator : MonoBehaviour
+public abstract class StockListGenerator : MonoBehaviour
 {
     [SerializeField] protected GameObject stockFieldPrefab;
     [SerializeField] protected StockHolder stockHolder;
@@ -51,6 +51,19 @@ public class StockListGenerator : MonoBehaviour
         field.Stock = stock;
 
         field.Value.SetText($"${System.String.Format("{0:0.00}", stock.CurrentValue)}");
+
+
+        if (stockHolder.OwnedStocksHolder.TryGetOwnedStock(stockSymbol, out OwnedStock ownedStock))
+        {
+            int amount = ownedStock.Shares.Count;
+
+            field.Amount.SetText($"{amount}x");
+        }
+        else
+        {
+            field.Amount.SetText($"0x");
+        }
+
 
         field.button.interactable = true;
     }

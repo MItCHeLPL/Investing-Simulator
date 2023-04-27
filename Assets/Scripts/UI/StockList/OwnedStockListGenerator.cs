@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class OwnedStockListGenerator : StockListGenerator
@@ -7,12 +8,9 @@ public class OwnedStockListGenerator : StockListGenerator
     {
         yield return base.GenerateStockFields();
 
-        foreach (OwnedStock ownedStock in stockHolder.OwnedStocksHolder.OwnedStocks)
+        foreach (OwnedStock ownedStock in stockHolder.OwnedStocksHolder.OwnedStocks.OrderBy(x => x.Symbol))
         {
             StartCoroutine(GenerateField(ownedStock.Symbol));
-
-
-            //TODO Modify to include amount of owned stock
         }
     }
 }
