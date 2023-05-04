@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TransactionsController : MonoBehaviour
 {
-    [SerializeField] private StockHolder stockHolder;
+    public StockHolder stockHolder;
 
     public double OwnedMoney => stockHolder.OwnedStocksHolder.OwnedMoney;
     public double WorthFromOwnedStocks => GetWorthFromOwnedStocks();
@@ -59,6 +59,7 @@ public class TransactionsController : MonoBehaviour
             }
             else
             {
+                InfoPopup.Show($"Can't buy, not enough money");
                 Debug.Log($"Can't buy, not enough money, current money: {OwnedMoney}");
             }
         }
@@ -84,6 +85,7 @@ public class TransactionsController : MonoBehaviour
             }
             else
             {
+                InfoPopup.Show($"Can't buy, not enough money");
                 Debug.Log($"Can't buy, not enough money, current money: {OwnedMoney}");
             }
         }
@@ -114,11 +116,13 @@ public class TransactionsController : MonoBehaviour
             }
             else
             {
+                InfoPopup.Show($"Can't sell, not enough shares.\nOwned shares amount of this stock: {ownedStock.Shares.Count}");
                 Debug.Log($"Can't sell, not enough shares, share count for this stock: {ownedStock.Shares.Count}");
             }
         }
         else
         {
+            InfoPopup.Show("Can't sell, stock not owned");
             Debug.Log("Stock not owned");
         }
     }
