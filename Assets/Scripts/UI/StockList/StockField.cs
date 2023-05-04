@@ -9,6 +9,7 @@ public class StockField : MonoBehaviour
     public TextMeshProUGUI Label;
     public TextMeshProUGUI Amount;
     public TextMeshProUGUI Value;
+    public TextMeshProUGUI Balance;
 
     [HideInInspector] public WindowManager WindowManager;
     [HideInInspector] public Stock Stock;

@@ -13,9 +13,10 @@ public class Stock
 	public double CurrentValue => Values.Count > 0 ? Values[0].Close : -1;
 	public double HighestCloseValue => GetHighestCloseValue().Close;
 	public double LowestCloseValue => GetLowestCloseValue().Close;
+    public double Balance24h => Values.Count > 0 ? Values[0].Close - Values[63].Close : 0;
 
 
-	public Stock()
+    public Stock()
 	{
 		Symbol = "";
 		Values = new List<StockValue>();

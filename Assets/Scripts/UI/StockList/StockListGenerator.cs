@@ -53,15 +53,22 @@ public abstract class StockListGenerator : MonoBehaviour
         field.Value.SetText($"${System.String.Format("{0:0.00}", stock.CurrentValue)}");
 
 
+        string balanceChar = "<color=black>";
+        if (stock.Balance24h > 0) balanceChar = "<color=#008800>+";
+        else if (stock.Balance24h < 0) balanceChar = "<color=red>-";
+
+        field.Balance.SetText($"{balanceChar}${System.String.Format("{0:0.00}", Mathf.Abs((float)stock.Balance24h))}</color>");
+
+
         if (stockHolder.OwnedStocksHolder.TryGetOwnedStock(stockSymbol, out OwnedStock ownedStock))
         {
             int amount = ownedStock.Shares.Count;
 
-            field.Amount.SetText($"{amount}x");
+            field.Amount.SetText($"{amount}");
         }
         else
         {
-            field.Amount.SetText($"0x");
+            field.Amount.SetText($"0");
         }
 
 

@@ -117,7 +117,7 @@ public class TransactionsController : MonoBehaviour
             else
             {
                 InfoPopup.Show($"Can't sell, not enough shares.\nOwned shares amount of this stock: {ownedStock.Shares.Count}");
-                Debug.Log($"Can't sell, not enough shares, share count for this stock: {ownedStock.Shares.Count}");
+                Debug.Log($"Can't sell, not enough shares, share count for this stockValue: {ownedStock.Shares.Count}");
             }
         }
         else
@@ -125,5 +125,45 @@ public class TransactionsController : MonoBehaviour
             InfoPopup.Show("Can't sell, stock not owned");
             Debug.Log("Stock not owned");
         }
+    }
+
+    public double GetTotalBalance()
+    {
+        double balance = 0;
+
+        foreach(var ownedStock in stockHolder.OwnedStocksHolder.OwnedStocks)
+        {
+            Stock stock = stockHolder.SavedStocksHolder.AllSavedStocks.Find(x => x.Symbol == ownedStock.Symbol);
+
+            if (stock != null)
+            {
+                foreach (var stockValue in ownedStock.Shares)
+                {
+                    balance += (stock.CurrentValue - stockValue.Close);
+                }
+            }
+        }
+
+        return balance;
+    }
+
+    public double GetBalanceForStock(string stockSymbol)
+    {
+        double balance = 0;
+
+        Stock stock = stockHolder.SavedStocksHolder.AllSavedStocks.Find(x => x.Symbol == stockSymbol);
+
+        if (stockHolder.OwnedStocksHolder.TryGetOwnedStock(stockSymbol, out OwnedStock ownedStock))
+        {
+            if(stock != null)
+            {
+                foreach (var stockValue in ownedStock.Shares)
+                {
+                    balance += (stock.CurrentValue - stockValue.Close);
+                }
+            }
+        }
+
+        return balance;
     }
 }

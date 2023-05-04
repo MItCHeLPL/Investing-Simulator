@@ -34,9 +34,17 @@ public class MoneyDisplay : MonoBehaviour
 
     private void ShowMoneyPopup()
     {
+        double balance = transactionsController.GetTotalBalance();
+
+
+        string balanceChar = "<color=black>";
+        if (balance > 0) balanceChar = "<color=#008800>+";
+        else if (balance < 0) balanceChar = "<color=red>-";
+
         string content = $"Available money: ${System.String.Format("{0:0.00}", transactionsController.OwnedMoney)}\n" +
             $"Money in stocks: ${System.String.Format("{0:0.00}", transactionsController.GetWorthFromOwnedStocks())}\n" +
-            $"Total money: ${System.String.Format("{0:0.00}", transactionsController.GetTotalWorth())}";
+            $"Total money: ${System.String.Format("{0:0.00}", transactionsController.GetTotalWorth())}\n" +
+            $"Total Profit / Loss: {balanceChar}${System.String.Format("{0:0.00}", Mathf.Abs((float)balance))}</color>";
 
         InfoPopup.Show(content);
     }

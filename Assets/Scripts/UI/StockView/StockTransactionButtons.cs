@@ -7,6 +7,7 @@ using UnityEngine.UI.Extensions;
 public class StockTransactionButtons : MonoBehaviour
 {
     [SerializeField] private TransactionsController transactionsController;
+    [SerializeField] private StockViewer stockViewer;
 
     [SerializeField] private Button buyButton;
     [SerializeField] private Button sellButton;
@@ -44,18 +45,28 @@ public class StockTransactionButtons : MonoBehaviour
 
     public void BuyCurrentStockShares()
     {
-        transactionsController.BuyShares(StockViewer.CurrentStock.Symbol, StockViewer.CurrentStock.Values[0], amountStepper.value);
+        if(amountStepper.value > 0)
+        {
+            transactionsController.BuyShares(StockViewer.CurrentStock.Symbol, StockViewer.CurrentStock.Values[0], amountStepper.value);
 
-        StopAllCoroutines();
-        StartCoroutine(RefreshStepper());
+            stockViewer.Show();
+
+            StopAllCoroutines();
+            StartCoroutine(RefreshStepper());
+        }
     }
 
     public void SellCurrentStockShares()
     {
-        transactionsController.SellShares(StockViewer.CurrentStock.Symbol, StockViewer.CurrentStock.Values[0], amountStepper.value);
+        if (amountStepper.value > 0)
+        {
+            transactionsController.SellShares(StockViewer.CurrentStock.Symbol, StockViewer.CurrentStock.Values[0], amountStepper.value);
 
-        StopAllCoroutines();
-        StartCoroutine(RefreshStepper());
+            stockViewer.Show();
+
+            StopAllCoroutines();
+            StartCoroutine(RefreshStepper());
+        }
     }
 
     public IEnumerator RefreshStepper()
