@@ -12,7 +12,19 @@ public class StockHolder : MonoBehaviour
     [ReadOnly] public SavedStocksHolder SavedStocksHolder = new();
     [ReadOnly] public OwnedStocksHolder OwnedStocksHolder = new(startMoney);
 
-    public List<string> AllAvailableStockSymbols = new();
+    public Dictionary<string, string> AllAvailableStockSymbolsAndNames = new()
+    {
+        { "AAPL", "Apple" },
+        { "MSFT", "Microsoft" },
+        { "GOOGL", "Alphabet Inc Class A" },
+        { "AMZN", "Amazon.com" },
+        { "TSLA", "Tesla" },
+        { "META", "Meta Platforms, Inc." },
+        { "NVDA", "NVIDIA Corporation" },
+        { "PEP", "PepsiCo, Inc." },
+        { "IBM", "IBM" },
+        { "EBAY", "eBay Inc. Common Stock" }
+    };
 
     private Dictionary<string, LoadStatus> stockSymbolLoaded = new();
 

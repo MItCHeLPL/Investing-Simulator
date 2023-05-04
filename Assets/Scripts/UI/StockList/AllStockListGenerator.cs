@@ -8,7 +8,7 @@ public class AllStockListGenerator : StockListGenerator
     {
         yield return base.GenerateStockFields();
 
-        foreach (string symbol in stockHolder.AllAvailableStockSymbols.OrderBy(x => x))
+        foreach (string symbol in stockHolder.AllAvailableStockSymbolsAndNames.Keys.OrderBy(x => x))
         {
             StartCoroutine(GenerateField(symbol));
         }

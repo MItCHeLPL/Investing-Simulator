@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using NaughtyAttributes;
 using UnityEngine.Events;
+using System.Linq;
 
 public class StockViewer : MonoBehaviour
 {
@@ -25,8 +26,10 @@ public class StockViewer : MonoBehaviour
 
 	[SerializeField] private TextMeshProUGUI symbolText;
 	[SerializeField] private TextMeshProUGUI currentValueText;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI detailsText;
 
-	[Space(15)]
+    [Space(15)]
 
 	public static Stock CurrentStock = null;
 
@@ -66,11 +69,11 @@ public class StockViewer : MonoBehaviour
 	{
 		Stock stock;
 
-		int id = stockHolder.AllAvailableStockSymbols.FindIndex(x => x == symbol);
+        string key = stockHolder.AllAvailableStockSymbolsAndNames.Keys.FirstOrDefault(x => x == symbol);
 
-        if (id != -1)
+        if (!string.IsNullOrEmpty(key))
 		{
-			stock = stockHolder.SavedStocksHolder.AllSavedStocks[id];
+			stock = stockHolder.SavedStocksHolder.AllSavedStocks.Find(x => x.Symbol == key);
         }
 		else
 		{
@@ -97,8 +100,16 @@ public class StockViewer : MonoBehaviour
 			//UIUtils.ReplaceText(currentValueText, "{StockCurrentValue}", $"{stock.CurrentValue.ToString()}");
 			currentValueText.SetText($"${System.String.Format("{0:0.00}", stock.CurrentValue)}");
 		}
+		if (nameText != null)
+		{
+			nameText.SetText($"{stockHolder.AllAvailableStockSymbolsAndNames.FirstOrDefault(x => x.Key == stock.Symbol).Value}");
+        }
+        if (detailsText != null)
+        {
+            detailsText.SetText($""); //TODO
+        }
 
-		OnShow.Invoke();
+        OnShow.Invoke();
 
 		//Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, LowestValue: {stock.LowestCloseValue}, HighestValue: {stock.HighestCloseValue}");
 	}
