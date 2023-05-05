@@ -50,7 +50,6 @@ public class StockViewer : MonoBehaviour
 			_refreshingViewerCoroutine = StartCoroutine(RefreshingViewer());
 			_isRefreshingViewerCoroutineRunning = true;
 		}
-
     }
 	private void OnDisable()
 	{
@@ -135,20 +134,20 @@ public class StockViewer : MonoBehaviour
 
         OnShow.Invoke();
 
-		//Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, LowestValue: {stock.LowestCloseValue}, HighestValue: {stock.HighestCloseValue}");
-	}
+        //Debug.Log($"Symbol: {stock.Symbol}, Values.Count: {stock.Values.Count}, CurrentValue: {stock.CurrentValue}, LowestValue: {stock.LowestCloseValue}, HighestValue: {stock.HighestCloseValue}");
+    }
 
 
 	public IEnumerator RefreshingViewer()
 	{
-		do
+        do
 		{
-			yield return new WaitForSecondsRealtime(_dataRefreshRate);
-
 			if (CurrentStock != null)
 			{
 				Show(CurrentStock);
 			}
-		} while (_isRefreshingViewerCoroutineRunning);
+
+            yield return new WaitForSecondsRealtime(_dataRefreshRate);
+        } while (_isRefreshingViewerCoroutineRunning);
 	}
 }

@@ -1068,7 +1068,7 @@ GameObject:
   - component: {fileID: 153436215}
   - component: {fileID: 153436214}
   m_Layer: 5
-  m_Name: StockIDetails
+  m_Name: StockDetails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1091,8 +1091,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 536.5, y: -1025}
-  m_SizeDelta: {x: 1073, y: 450}
+  m_AnchoredPosition: {x: 536.5, y: -937.5}
+  m_SizeDelta: {x: 1073, y: 275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &153436214
 MonoBehaviour:
@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '{stockDetails}'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2346,8 +2346,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 208.45749, y: -129.99925}
-  m_SizeDelta: {x: 416.91498, y: 40.00149}
+  m_AnchoredPosition: {x: 208.45749, y: -119.2025}
+  m_SizeDelta: {x: 416.91498, y: 61.594997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523080796
 MonoBehaviour:
@@ -5643,8 +5643,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5729,8 +5729,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 208.45749, y: -29.999254}
-  m_SizeDelta: {x: 416.91498, y: 59.99851}
+  m_AnchoredPosition: {x: 208.45749, y: -44.2025}
+  m_SizeDelta: {x: 416.91498, y: 88.405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618275014
 MonoBehaviour:
@@ -7888,7 +7888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6170753359807559876, guid: dd9de0325e802904faf06bf65b0d4417, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1250
+      value: 1075
       objectReference: {fileID: 0}
     - target: {fileID: 6170753359807559876, guid: dd9de0325e802904faf06bf65b0d4417, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7912,7 +7912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6170753360338386260, guid: dd9de0325e802904faf06bf65b0d4417, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.06400001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6170753360564886260, guid: dd9de0325e802904faf06bf65b0d4417, type: 3}
       propertyPath: m_StaticEditorFlags
