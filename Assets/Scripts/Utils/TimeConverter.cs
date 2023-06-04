@@ -91,4 +91,12 @@ public static class TimeConverter
 	{
 		return ConvertTimeStrippedToHoursMinutes((double)time);
 	}
+
+    public static string ConvertTimeStrippedToDate(TimeSpan timeSpan)
+    {
+        DateTime dt = new DateTime() + timeSpan;
+
+		string output = dt.ToString("dd.MM.yy");
+        return output;
+    }
 }

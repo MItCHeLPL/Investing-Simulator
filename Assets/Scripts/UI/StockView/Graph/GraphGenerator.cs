@@ -99,7 +99,7 @@ public class GraphGenerator : MonoBehaviour
 
 				long labelValue = (long)MathUtils.Remap(i, 0, (stock.Values.Count - 1), stock.Values[^1].Timestamp.Ticks, stock.Values[0].Timestamp.Ticks);
 
-				labelText.SetText(TimeConverter.ConvertTimeStrippedToHoursMinutes(new TimeSpan(labelValue)));
+				labelText.SetText($"{TimeConverter.ConvertTimeStrippedToDate(new TimeSpan(labelValue))}\n{TimeConverter.ConvertTimeStrippedToHoursMinutes(new TimeSpan(labelValue))}");
 
 				//Counter
 				xLabelCount++;
