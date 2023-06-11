@@ -6428,10 +6428,10 @@ RectTransform:
   m_Father: {fileID: 4174081949872783759}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -200}
-  m_SizeDelta: {x: 137.56, y: 53.63}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 461.28918, y: -841.755}
+  m_SizeDelta: {x: 872.57837, y: 1433.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1657632189
 MonoBehaviour:
@@ -6453,7 +6453,36 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TODO
+  m_text: 'Investing Simulator is an app where you can try investing in different
+    stocks using virtual currency without the risk of losing real-world money.
+
+    
+
+    You
+    start with $5000 that you can invest in any stock you want.
+
+    
+
+    Stocks
+    are updated in real-time, and the in-app stock data imitates real-world data
+    with a 15-minute delay.
+
+
+    To invest in a specific stock, click on the stock
+    label in the <b>"All Stocks"</b> or <b>"My Stocks"</b> panel. Detailed stock
+    data, along with buttons to buy and sell stocks, will be displayed.
+
+
+    To
+    check the value of your stocks and track your progress, click on the money displayed
+    on the top bar of the app.
+
+
+    To reset your progress, press the button located
+    in the top right corner of the app. This action will remove all the stocks you
+    own and reset your balance to $5000.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6542,7 +6571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
+  m_HorizontalFit: 0
   m_VerticalFit: 2
 --- !u!1 &1683756270
 GameObject:
@@ -8417,6 +8446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4174081949872783759}
+  - component: {fileID: 4174081949872783760}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -8443,8 +8473,34 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1370.7}
+  m_SizeDelta: {x: 0, y: 1575}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &4174081949872783760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174081949872783752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 25
+    m_Right: 25
+    m_Top: 125
+    m_Bottom: 25
+  m_ChildAlignment: 3
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!114 &4174081950137545060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8594,7 +8650,7 @@ RectTransform:
   m_Father: {fileID: 4174081950708178448}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.1296827}
   m_AnchorMax: {x: 1, y: 0.99999994}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -8687,8 +8743,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4174081950416192542}
   m_HandleRect: {fileID: 4174081950416192543}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.9999994
+  m_Size: 0.8703172
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
