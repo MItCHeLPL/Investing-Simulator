@@ -37,7 +37,9 @@ public abstract class StockListGenerator : MonoBehaviour
 
         field.WindowManager = windowManager;
 
-        field.Label.SetText(stockSymbol);
+        field.Name.SetText(stockSymbol);
+        field.FullName.SetText(stockHolder.AllAvailableStockSymbolsAndNames[stockSymbol]);
+
         field.Value.SetText("Loading...");
 
         StartCoroutine(stockHolder.FillStockInfo(stockSymbol));
@@ -64,11 +66,11 @@ public abstract class StockListGenerator : MonoBehaviour
         {
             int amount = ownedStock.Shares.Count;
 
-            field.Amount.SetText($"{amount}");
+            field.Amount.SetText($"{amount} owned");
         }
         else
         {
-            field.Amount.SetText($"0");
+            field.Amount.SetText($"0 owned");
         }
 
 

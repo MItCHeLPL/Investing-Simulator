@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class StockField : MonoBehaviour
 {
-    public TextMeshProUGUI Label;
+    public TextMeshProUGUI Name;
+    public TextMeshProUGUI FullName;
     public TextMeshProUGUI Amount;
     public TextMeshProUGUI Value;
     public TextMeshProUGUI Balance;
