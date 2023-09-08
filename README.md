@@ -1,4 +1,8 @@
 # Investing Simulator
+<p align="center">
+  <img src="screenshots.png" width="100%" height="100%">
+</p>
+
 Prototype investing simulator created as university bachelor's degree project.
 
 ## About
